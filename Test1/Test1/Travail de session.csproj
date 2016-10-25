@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Monster.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="Habilete.cs" />
+    <Compile Include="Monstre.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

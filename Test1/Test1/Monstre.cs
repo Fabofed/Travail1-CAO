@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test1
+namespace TravailSession
 {
-
     enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
 
     class Monstre
     {
-
         private int id;
         private byte rarete;
         private byte experience;
@@ -48,14 +46,12 @@ namespace Test1
         {
 
         }
-
     }
 
     struct Caracteristiques
     {
-
         private int pointsDeVieDeBase;
         private int pointsDEnergie;
     }
-
 }
+
