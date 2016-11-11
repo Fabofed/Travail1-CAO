@@ -17,6 +17,7 @@ namespace TravailSession
             Console.WriteLine(monstre);
 
             monstre.PtsVieActuels = 200;
+            monstre.Etat.Add(EtatActif.Empoisonne);
             Console.WriteLine(monstre);
            
         }

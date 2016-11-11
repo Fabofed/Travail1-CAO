@@ -9,7 +9,7 @@ namespace TravailSession
 {
 
     enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
-    enum EtatActif { Mort, Vivant, Paralysie, Empoisonnement, ForceDecuplee }
+    enum EtatActif { Mort, Vivant, Paralyse, Empoisonne, Enrage }
 
 
     /**
@@ -27,6 +27,7 @@ namespace TravailSession
         private byte niveauExperience;
         private int pointsExperience;
         private Caracteristiques caracteristiquesMonstre;
+        private List<EtatActif> etat = new List<EtatActif>();
 
 
 
@@ -48,13 +49,14 @@ namespace TravailSession
          */
         public Monstre(string Nom, string Surnom, Caracteristiques caracteristiques)
         {
-            //nnkjhu
             this.Nom = Nom;
             this.Surnom = Surnom;
             this.Type = TypeMonstre.Terre;
             this.Rarete = rarete;
             this.NiveauExperience = 1;
             this.CaracteristiquesMonstre = caracteristiques;
+            this.etat = new List<EtatActif>();
+            etat.Add(EtatActif.Vivant);
         }
 
         #endregion
@@ -134,6 +136,13 @@ namespace TravailSession
             get { return this.CaracteristiquesMonstre.PtsVieTotal; }
             set { this.caracteristiquesMonstre.PtsVieTotal = value; }
         }
+        public List<EtatActif> Etat
+        {
+            get
+            { return this.etat;
+            }
+            set { this.etat = value; }
+        }
 
         #endregion
 
@@ -146,12 +155,16 @@ namespace TravailSession
          */ 
         public override string ToString()
         {
+            string etats = "";
+            foreach (EtatActif E in etat)
+                etats += E.ToString() + " ";
             return "Monstre : \n" + "\t Nom : " + this.Nom + "\n"
                                   + "\t Surnom : " + this.Surnom + "\n"
                                   + "\t Type : " + this.Type + "\n"
                                   + "\t Rarete : " + this.Rarete + "\n"
                                   + "\t Exp : " + this.NiveauExperience + "\n"
-                                  + "\t PV \\ PT : " + this.PtsVieActuels + " \\ " + this.PtsVieTotal + "\n";
+                                  + "\t PV \\ PT : " + this.PtsVieActuels + " \\ " + this.PtsVieTotal + "\n"
+                                  + "\t Etats : " + etats + "\n";
         }
 
         #endregion
