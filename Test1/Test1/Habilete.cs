@@ -14,8 +14,8 @@ namespace TravailSession
         {
             this.name = name;
             this.description = description;
-            this.typeOfElement = typeOfElement;
-            this.cost = cost;
+           // this.typeOfElement = typeOfElement;
+            //this.cost = cost;
         }
     }
 }

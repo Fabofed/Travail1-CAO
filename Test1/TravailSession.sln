@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travail de session", "Test1\Travail de session.csproj", "{759885D4-C667-42FE-A210-63920D00CD72}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{674F0779-B8A8-4164-A331-EA5452260D82}"
+	ProjectSection(SolutionItems) = preProject
+		description_monstre.xml = description_monstre.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
