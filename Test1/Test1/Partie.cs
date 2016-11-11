@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
 
-
 namespace TravailSession
 {
-    class Inventaire
+    class Partie
     {
-        public Inventaire()
-        {
+        private Joueur joueur;
 
+        public Partie()
+        {
+            joueur = new Joueur();
 
         }
     }

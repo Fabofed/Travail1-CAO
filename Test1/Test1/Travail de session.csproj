@@ -44,12 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caracteristiques.cs" />
+    <Compile Include="Combat.cs" />
+    <Compile Include="Difficulte.cs" />
+    <Compile Include="Effet.cs" />
     <Compile Include="Element.cs" />
+    <Compile Include="Equipe.cs" />
     <Compile Include="Habilete.cs" />
     <Compile Include="Inventaire.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Joueur.cs" />
+    <Compile Include="Magasin.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Monstre.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Partie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravailSession;
 
-namespace Test1
+
+namespace TravailSession
 {
     struct Caracteristiques
     {
@@ -104,6 +106,6 @@ namespace Test1
             Random generateur = new Random();
             return generateur.Next(10, 481); // Génère un entier compris dans la plage [10, 480]
         }
-
     }
+
 }

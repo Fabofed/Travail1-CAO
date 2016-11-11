@@ -5,15 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
 
-
 namespace TravailSession
 {
-    class Inventaire
+    class Menu
     {
-        public Inventaire()
-        {
-
-
-        }
     }
 }

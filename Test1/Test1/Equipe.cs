@@ -8,11 +8,10 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Inventaire
+    class Equipe
     {
-        public Inventaire()
+        public Equipe()
         {
-
 
         }
     }

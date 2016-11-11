@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test1;
+using TravailSession;
+
 
 namespace TravailSession
 {
-    class Program
+    class Main
     {
-        static void Main(string[] args)
-        {
+        Monstre monstre = new Monstre("Saroumane", "Le sorcier Blanc", new Caracteristiques(Caracteristiques.GenererValeur(), 10));
 
-            Monstre monstre = new Monstre("Saroumane", "Le sorcier Blanc", new Caracteristiques(Caracteristiques.GenererValeur(), 10));
-
-            Console.WriteLine(monstre);
+        Console.WriteLine(monstre);
 
             monstre.PtsVieActuels = 200;
             monstre.Etat.Add(EtatActif.Empoisonne);
             Console.WriteLine(monstre);
-           
-        }
     }
 }
