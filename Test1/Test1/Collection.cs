@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravailSession;
-
 
 namespace TravailSession
 {
-    //Herite de la classe Collection
-    class Inventaire : Collection
+    //Classe mere de Magasin et Inventaire
+    class Collection
     {
         private List<Item> items = new List<Item>();
 
-        public Inventaire()
+        public Collection()
         {
 
         }

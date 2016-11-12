@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravailSession;
-
 
 namespace TravailSession
 {
-    class Item
+    class Sphere : Item
     {
         private String nom { get; set; }
         private String description { get; set; }

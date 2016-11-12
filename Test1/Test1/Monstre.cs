@@ -17,7 +17,6 @@ namespace TravailSession
      */
     class Monstre
     {
-
         private Random generateur  = new Random();
 
         private int id;
@@ -29,9 +28,7 @@ namespace TravailSession
         private Caracteristiques caracteristiquesMonstre;
         private List<EtatActif> etat = new List<EtatActif>();
 
-
-
-
+ 
         #region Constructeurs
 
         /**
@@ -60,9 +57,7 @@ namespace TravailSession
         }
 
         #endregion
-
-
-
+        
 
         #region Propriétés (Acesseurs et Mutateurs)
 
@@ -84,7 +79,7 @@ namespace TravailSession
             {
                 return rarete;
             }
-            private set
+            set
             {
                 switch (Type)
                 {
@@ -115,11 +110,11 @@ namespace TravailSession
                 }
             }
         }
-        public byte NiveauExperience { get; private set; }
+        public byte NiveauExperience { get; set; }
         public int PointsExperience
         {
             get { return pointsExperience; }
-            private set { }  
+            set { }  
         }
         public Caracteristiques CaracteristiquesMonstre
         {
@@ -145,9 +140,7 @@ namespace TravailSession
         }
 
         #endregion
-
-
-
+        
 
         #region Autres Méthodes
         /**

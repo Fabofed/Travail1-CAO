@@ -13,8 +13,7 @@ namespace TravailSession
 
         public Partie()
         {
-            joueur = new Joueur();
-
+            Joueur joueur = new Joueur();
         }
     }
 }

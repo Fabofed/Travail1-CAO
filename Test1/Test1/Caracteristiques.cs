@@ -83,19 +83,19 @@ namespace TravailSession
         public int Attaque
         {
             get;
-            private set; // On laisse la place à un eventuelle évolution du monstre
+            set; // On laisse la place à un eventuelle évolution du monstre
         }
 
         public int Defense
         {
             get;
-            private set;
+            set;
         }
 
         public int Progression
         {
             get;
-            private set;
+            set;
         }
 
 

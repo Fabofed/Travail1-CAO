@@ -8,7 +8,15 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Effet
+    public abstract class Effet
     {
+        private Monstre cible;
+        private int magnitude;
+        private int duree;
+
+        public Effet()
+        {
+
+        }
     }
 }

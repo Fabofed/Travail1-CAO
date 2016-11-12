@@ -8,7 +8,24 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Magasin
+    //Herite de la classe Collection
+    class Magasin: Collection
     {
+        private List<Item> items = new List<Item>();
+
+        public Magasin()
+        {
+
+        }
+
+        public void Ajouter(Item item)
+        {
+            Item aAjouter = item;
+        }
+
+        public void Supprimer(Item item)
+        {
+            Item aRetirer = item;
+        }
     }
 }
