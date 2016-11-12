@@ -8,10 +8,9 @@ namespace TravailSession
 {
     class Sphere : Item
     {
-        private String nom { get; set; }
-        private String description { get; set; }
-        private int valeur { get; set; }
-        private Element type { get; set; }
-        private List<Effet> etat = new List<Effet>();
+        public Sphere(String nom, String description, int valeur, Element type, List<Effet> effets) : base(nom, description, valeur, type, effets)
+        {
+            //mettre capturer dans la liste d'effets
+        }
     }
 }

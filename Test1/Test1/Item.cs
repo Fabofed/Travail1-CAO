@@ -15,5 +15,18 @@ namespace TravailSession
         private int valeur { get; set; }
         private Element type { get; set; }
         private List<Effet> etat = new List<Effet>();
+
+
+        public Item(String nom, String description, int valeur, Element type, List<Effet> etat)
+        {
+            this.nom = nom;
+            this.description = description;
+            this.valeur = valeur;
+            this.type = type;
+            this.etat = etat;
+        }
+
     }
 }
+
+

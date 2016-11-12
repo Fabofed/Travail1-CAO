@@ -10,7 +10,7 @@ namespace TravailSession
     class Difficulte
     {
         private DifficulteCombat difficulte;
-        private int recompensePts;
+        private int recompensePts { get; set; }
 
 
         #region Proprietes

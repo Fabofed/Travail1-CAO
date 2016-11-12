@@ -10,11 +10,11 @@ namespace TravailSession
 {
     class Habilete
     {
-        private String name;
-        private String description;
-        public Habilete(String name, String description, Enum typeOfElement, int cost)
+        private String nom { get; set; }
+        private String description { get; set; }
+        public Habilete(String nom, String description, Enum typeOfElement, int cost)
         {
-            this.name = name;
+            this.nom = nom;
             this.description = description;
            // this.typeOfElement = typeOfElement;
             //this.cost = cost;

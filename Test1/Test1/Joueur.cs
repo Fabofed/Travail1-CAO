@@ -10,10 +10,10 @@ namespace TravailSession
 {
     class Joueur
     {
-        private String nom;
-        private Sexe sexe;
-        private int age;
-        private int argent;
+        private String nom { get; set; }
+        private Sexe sexe { get; set; }
+        private int age { get; set; }
+        private int argent { get; set; }
         Inventaire inventaire = new Inventaire();
         Monstre monstre = new Monstre();
         static Monstre[] Equipe = new Monstre[5];

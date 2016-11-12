@@ -10,9 +10,9 @@ namespace TravailSession
 {
     public abstract class Effet
     {
-        private Monstre cible;
-        private int magnitude;
-        private int duree;
+        private Monstre cible { get; set; }
+        private int magnitude { get; set; }
+        private int duree { get; set; }
 
         public Effet()
         {
