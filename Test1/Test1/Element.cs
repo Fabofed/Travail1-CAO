@@ -8,7 +8,7 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Element
+    public static class Element
     {
         const double majorOppositionBonus = 2;
         const double minorOppositionBonus = 1.5;

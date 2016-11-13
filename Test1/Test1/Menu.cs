@@ -7,7 +7,7 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Menu
+    public static class Menu
     {
     }
 }

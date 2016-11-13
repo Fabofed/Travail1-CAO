@@ -8,14 +8,22 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Main
+    public class Main
     {
+        //Instancier les monstres
         Monstre monstre = new Monstre("Saroumane", "Le sorcier Blanc", new Caracteristiques(Caracteristiques.GenererValeur(), 10));
 
         Console.WriteLine(monstre);
 
             monstre.PtsVieActuels = 200;
-            monstre.Etat.Add(EtatActif.Empoisonne);
             Console.WriteLine(monstre);
+
+
+            //Instancier les items
+            //Instancier le joueur avec les I/O de l'utilisateur
+            //Instancier les effets
+            //Instancier le magasin et l'inventaire
+            //Instancier l'equipe
+
     }
 }

@@ -84,28 +84,28 @@ namespace TravailSession
             {
                 switch (Type)
                 {
-                    case TypeMonstre.Magma:
+                    case TypeMonstre.Feu:
                         rarete = (byte)generateur.Next(0, 32);
                         break;
-                    case TypeMonstre.Electricite:
+                    case TypeMonstre.Eau:
                         rarete = (byte)generateur.Next(32, 64);
                         break;
-                    case TypeMonstre.Glace:
+                    case TypeMonstre.Air:
                         rarete = (byte)generateur.Next(64, 96);
                         break;
-                    case TypeMonstre.Feu:
+                    case TypeMonstre.Terre:
                         rarete = (byte)generateur.Next(96, 128);
                         break;
-                    case TypeMonstre.Vegetation:
+                    case TypeMonstre.Magma:
                         rarete = (byte)generateur.Next(128, 160);
                         break;
-                    case TypeMonstre.Air:
+                    case TypeMonstre.Glace:
                         rarete = (byte)generateur.Next(160, 192);
                         break;
-                    case TypeMonstre.Eau:
+                    case TypeMonstre.Electricite:
                         rarete = (byte)generateur.Next(192, 224);
                         break;
-                    case TypeMonstre.Terre:
+                    case TypeMonstre.Vegetation:
                         rarete = (byte)generateur.Next(224, 256);
                         break;
                 }

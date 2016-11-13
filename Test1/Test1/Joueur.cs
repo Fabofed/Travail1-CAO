@@ -10,20 +10,18 @@ namespace TravailSession
 {
     class Joueur
     {
-        private String nom { get; set; }
-        private Sexe sexe { get; set; }
-        private int age { get; set; }
-        private int argent { get; set; }
-        Inventaire inventaire = new Inventaire();
-        Monstre monstre = new Monstre();
-        static Monstre[] Equipe = new Monstre[5];
-        private List<Monstre> monstresCaptures { get; set; }
+        public static String nom { get; set; }
+        public static int argent { get; set; }
+        public static Inventaire inventaire { get; set; }
+        public static Monstre monstreActif = new Monstre(); //Monstre 1 de depart obligatoire
+        public static Monstre[] equipe = new Monstre[5];
+        public static List<Monstre> monstresCaptures = new List<Monstre>();
 
-        enum Sexe {homme, femme, autre}
-
-        public Joueur()
+        public Joueur(String nom, int argent, Inventaire inventaire, List<Monstre> monstresCaptures, Monstre[] equipe)
         {
-            monstresCaptures = new List<Monstre>();
+            monstresCaptures.Add(monstreActif); //initialise le monstreActif dans la liste de monstresCapt
+            equipe = new Monstre[5];
+            equipe[0] = monstreActif; // Met le monstreActif dans l'equipe
         }
     }
 }

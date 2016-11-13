@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TravailSession
 {
     //Classe mere de Magasin et Inventaire
-    class Collection
+    public abstract class Collection
     {
         private List<Item> items { get; set; }
 
