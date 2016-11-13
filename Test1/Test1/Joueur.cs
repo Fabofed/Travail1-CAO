@@ -17,13 +17,13 @@ namespace TravailSession
         Inventaire inventaire = new Inventaire();
         Monstre monstre = new Monstre();
         static Monstre[] Equipe = new Monstre[5];
-        static Monstre[] monstreCaptures = new Monstre[10];
+        private List<Monstre> monstresCaptures { get; set; }
 
         enum Sexe {homme, femme, autre}
 
         public Joueur()
         {
-
+            monstresCaptures = new List<Monstre>();
         }
     }
 }

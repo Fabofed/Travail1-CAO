@@ -14,7 +14,7 @@ namespace TravailSession
         private String description { get; set; }
         private int valeur { get; set; }
         private Element type { get; set; }
-        private List<Effet> etat = new List<Effet>();
+        private List<Effet> etat { get; set; }
 
 
         public Item(String nom, String description, int valeur, Element type, List<Effet> etat)
@@ -24,6 +24,7 @@ namespace TravailSession
             this.valeur = valeur;
             this.type = type;
             this.etat = etat;
+            etat = new List<Effet>();
         }
 
     }

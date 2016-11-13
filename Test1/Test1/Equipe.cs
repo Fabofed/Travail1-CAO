@@ -10,9 +10,11 @@ namespace TravailSession
 {
     class Equipe
     {
+        private List<Monstre> equipe { get; set; }
+
         public Equipe()
         {
-
+            equipe = new List<Monstre>(); 
         }
     }
 }

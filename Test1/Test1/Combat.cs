@@ -10,9 +10,9 @@ namespace TravailSession
 {
     class Combat
     {
-        public Difficulte difficulte;
-        private Equipe joueur;
-        private Equipe ennemi;
+        public Difficulte difficulte { get; set; }
+        private Equipe joueur { get; set; }
+        private Equipe ennemi { get; set; }
 
 
         #region Constructeurs

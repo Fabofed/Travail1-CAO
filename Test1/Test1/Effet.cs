@@ -18,5 +18,10 @@ namespace TravailSession
         {
 
         }
+
+        public void Effectuer()
+        {
+
+        }
     }
 }

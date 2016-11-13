@@ -20,13 +20,13 @@ namespace TravailSession
         private Random generateur  = new Random();
 
         private int id;
-        //private string nom;
+        //private string nom; 
         private string surnom;
         private byte rarete;
         private byte niveauExperience;
         private int pointsExperience;
         private Caracteristiques caracteristiquesMonstre;
-        private List<EtatActif> etat = new List<EtatActif>();
+        private List<EtatActif> etat { get; set; }
 
  
         #region Constructeurs
@@ -39,6 +39,7 @@ namespace TravailSession
             this.Id = 1;
             this.Nom = "Monstre";
             this.Surnom = null;
+            etat = new List<EtatActif>();
         }
 
         /**

@@ -9,7 +9,7 @@ namespace TravailSession
 {
     class Difficulte
     {
-        private DifficulteCombat difficulte;
+        private DifficulteCombat difficulte { get; set; }
         private int recompensePts { get; set; }
 
 

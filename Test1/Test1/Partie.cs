@@ -9,7 +9,7 @@ namespace TravailSession
 {
     class Partie
     {
-        private Joueur joueur;
+        private Joueur joueur { get; set; }
 
         public Partie()
         {

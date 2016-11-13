@@ -9,11 +9,11 @@ namespace TravailSession
     //Classe mere de Magasin et Inventaire
     class Collection
     {
-        private List<Item> items = new List<Item>();
+        private List<Item> items { get; set; }
 
         public Collection()
         {
-
+            items = new List<Item>();
         }
 
         public void Ajouter(Item item)
