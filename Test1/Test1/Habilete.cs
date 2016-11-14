@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace Projet
 {
-    enum TypeElement
+   /* enum TypeElement
     {
         cible,
         effet,
         magnitude,
         duree,
-    }
+    }*/
+     enum CibleHabilete { Soi, Ennemi}
+
+    enum EffetHabilete {  Guerison, Degat} 
 
     public class Habilete
     {
