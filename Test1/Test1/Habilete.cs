@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace Projet
 {
-   /* enum TypeElement
-    {
-        cible,
-        effet,
-        magnitude,
-        duree,
-    }*/
-     enum CibleHabilete { Soi, Ennemi}
+    enum CibleHabilete { Soi, Ennemi}
 
-    enum EffetHabilete {  Guerison, Degat} 
+    enum EffetHabilete { Guerison, Degat} 
 
     public class Habilete
     {
@@ -23,16 +16,14 @@ namespace Projet
         public string description { get; private set; }
         public int gain { get; private set; }
         public int puissance { get; private set; }
-        public TypeElement element { get; private set; }
 
 
-        public Habilete(string nom, string description, int gain, int puissance, TypeElement element = TypeElement.PretaAttaquer)
+        public Habilete(string nom, string description, int gain, int puissance)
         {
             this.nom = nom;
             this.description = description;
             this.gain = this.gain;
             this.puissance = puissance;
-            this.Element = element;
         }
 
     }

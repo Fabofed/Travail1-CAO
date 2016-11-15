@@ -8,26 +8,28 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Item
+   public abstract class Item
     {
-        private String nom { get; set; }
-        private String description { get; set; }
-        private int valeur { get; set; }
-        private Element type { get; set; }
-        private List<Effet> etat { get; set; }
+        #region propriete
+        public String Nom { get; set; }
+        public String Description { get; set; }
+        public int Valeur { get; set; }
+        public int Degats { get; set; } // j'ai rajouté le champ degats
+        public Element Type { get; set; }
+        public List<Effet> etat { get; set; }
+        #endregion
 
-
-        public Item(String nom, String description, int valeur, Element type, List<Effet> etat)
+        #region constructeur
+        public Item (string nom, String description, int valeur, int Degats, Element type, List<Effet> etat)
         {
-            this.nom = nom;
-            this.description = description;
-            this.valeur = valeur;
-            this.type = type;
+            this.Nom = Nom;
+            this.Description = Description;
+            this.Valeur = Valeur;
+            this.Degats = Degats;
+            this.Type = type;
             this.etat = etat;
             etat = new List<Effet>();
         }
-
+        #endregion
     }
 }
-
-
