@@ -10,18 +10,28 @@ namespace TravailSession
 {
     class Joueur
     {
-        public static String nom { get; set; }
-        public static int argent { get; set; }
-        public static Inventaire inventaire { get; set; }
-        public static Monstre monstreActif = new Monstre(); //Monstre 1 de depart obligatoire
-        public static Monstre[] equipe = new Monstre[5];
-        public static List<Monstre> monstresCaptures = new List<Monstre>();
+        private string nom { get; set; }
+        private int argent { get; set; }
+        private Inventaire inventaire { get; set; }
+        private List<Monstre> monstresCaptures = new List<Monstre>();
+        private Equipe joueur = new Equipe();
 
-        public Joueur(String nom, int argent, Inventaire inventaire, List<Monstre> monstresCaptures, Monstre[] equipe)
+        //  monstresCaptures.Add(new Monstre() {nom="Charmander"..... ETC. });
+
+
+        public Joueur(string nom, int argent, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe joueur)
         {
-            monstresCaptures.Add(monstreActif); //initialise le monstreActif dans la liste de monstresCapt
-            equipe = new Monstre[5];
-            equipe[0] = monstreActif; // Met le monstreActif dans l'equipe
+            this.nom = nom;
+            this.argent = argent;
+            this.inventaire = inventaire;
+            this.monstresCaptures = monstresCaptures;
+            this.joueur = joueur;
         }
+
+        public override string ToString()
+        {
+            return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + joueur;
+        }
+
     }
 }

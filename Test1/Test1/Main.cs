@@ -24,6 +24,5 @@ namespace TravailSession
             //Instancier les effets
             //Instancier le magasin et l'inventaire
             //Instancier l'equipe
-
-    }
+}
 }

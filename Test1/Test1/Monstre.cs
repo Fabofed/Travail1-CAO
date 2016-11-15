@@ -19,7 +19,7 @@ namespace TravailSession
     {
         private Random generateur  = new Random();
 
-        private int id;
+        public int id;
         //private string nom; 
         private string surnom;
         private byte rarete;
