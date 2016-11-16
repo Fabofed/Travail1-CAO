@@ -13,19 +13,19 @@ namespace Projet
 
     public class Habilete
     {
-        public string nom { get; private set; }
-        public string description { get; private set; }
-        public int gain { get; private set; }
-        public int puissance { get; private set; }
+        public string Nom { get; private set; }
+        public string Description { get; private set; }
+        public int Gain { get; private set; }
+        public int Puissance { get; private set; }
        // public TypeElement element { get; private set; }
 
 
         public Habilete(string nom, string description, int gain, int puissance, /*TypeElement element = TypeElement.PretaAttaquer*/)
         {
-            this.nom = nom;
-            this.description = description;
-            this.gain = this.gain;
-            this.puissance = puissance;
+            this.Nom = nom;
+            this.Description = description;
+            this.Gain = gain;
+            this.Puissance = puissance;
             //this.Element = element;
         }
 

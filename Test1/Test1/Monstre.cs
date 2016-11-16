@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace TravailSession
         private int pointsExperience;
         private Caracteristiques caracteristiquesMonstre;
         private List<EtatActif> etat { get; set; }
+        private List<Habilete> habiletesPotentielles;
+        private List<Habilete> habiletesActives;
 
  
         #region Constructeurs
@@ -139,11 +142,32 @@ namespace TravailSession
             }
             set { this.etat = value; }
         }
+        public List<Habilete> HabiletesPotentielles
+        {
+            get { return this.habiletesPotentielles; }
+        }
+        public List<Habilete> HabiletesActives
+        {
+            get { return this.HabiletesActives; }
+        }
 
         #endregion
         
 
         #region Autres Méthodes
+
+        /**
+         * Permet de choisir une habilete active du monstre
+         */
+        public Habilete ChoisirHabilete(string nom)
+        {
+            Habilete habileteTrouvee = null;
+            foreach (Habilete h in HabiletesActives)
+                if (h.Nom.Equals(nom))
+                    habileteTrouvee = h;
+            return habileteTrouvee;
+        }
+
         /**
          * Affiche l'état actuel du Monstre
          */ 
