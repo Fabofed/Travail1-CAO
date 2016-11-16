@@ -13,7 +13,7 @@ namespace Projet
         magnitude,
         duree,
     }*/
-     enum CibleHabilete { Soi, Ennemi}
+    enum CibleHabilete { Soi, Ennemi}
 
     enum EffetHabilete {  Guerison, Degat} 
 
@@ -23,7 +23,7 @@ namespace Projet
         public string description { get; private set; }
         public int gain { get; private set; }
         public int puissance { get; private set; }
-        public TypeElement element { get; private set; }
+       // public TypeElement element { get; private set; }
 
 
         public Habilete(string nom, string description, int gain, int puissance, TypeElement element = TypeElement.PretaAttaquer)
