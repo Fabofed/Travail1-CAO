@@ -8,7 +8,9 @@ using TravailSession;
 
 namespace TravailSession
 {
-    public static class Element
+    public class Element //avant s etait marqué public static mais 
+        //j ai enlevé parce que je ne peux pas appeler 
+        //une classe statique dans une autre classe(Olivier)
     {
         const double majorOppositionBonus = 2;
         const double minorOppositionBonus = 1.5;
