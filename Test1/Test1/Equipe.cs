@@ -79,11 +79,12 @@ namespace TravailSession
             Console.WriteLine("Quel sera son surnom: /n");
             surnom = Console.ReadLine();
 
-           public Monstre monstreAAjouter = new Monstre(som, surnom, caracteristiques);
+           public Monstre monstreAAjouter = new Monstre(nom, surnom, caracteristiques);
         joueur.Ajouter(monstreAAjouter, joueur);
-
+            
             return joueur;
         }
+
 
 
 
@@ -132,13 +133,6 @@ namespace TravailSession
             monstre.ToString();
         }
     }
-
-
-
-    //Methode qui appel la classe choisir habilete de la classe Monstre et permet au joueur de choisir les habiletes des monstres dans son equipe un a un
-    public void ChoisirHabilete()
-    {
-
     }
 }
-}
+
