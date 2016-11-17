@@ -74,18 +74,15 @@ namespace TravailSession
                 }
             } while (estValide);
 
-
             string surnom;
             Console.WriteLine("Quel sera son surnom: /n");
             surnom = Console.ReadLine();
 
            public Monstre monstreAAjouter = new Monstre(nom, surnom, caracteristiques);
         joueur.Ajouter(monstreAAjouter, joueur);
-            
             return joueur;
-        }
-
-
+            }
+        
 
 
     //Ajoute un monstre a l'equipe et retourne l'equipe
@@ -133,6 +130,6 @@ namespace TravailSession
             monstre.ToString();
         }
     }
-    }
+}
 }
 
