@@ -18,8 +18,22 @@ namespace TravailSession
 
 
         public Monstre[] equipe { get; set; }
+        public int taille { get; private set; }
 
         public Equipe(Monstre[] equipe)
+        {
+            Monstre[] equipeJoueur = new Monstre[5];
+            equipeJoueur[0] = monstreActif;
+            equipeJoueur[1] = monstre2;
+            equipeJoueur[2] = monstre3;
+            equipeJoueur[3] = monstre4;
+            equipeJoueur[4] = monstre5;
+
+            taille = 0;
+            this.equipe = equipeJoueur;
+        }
+
+        public Equipe()
         {
             Monstre[] equipeJoueur = new Monstre[5];
             equipeJoueur[0] = monstreActif;
@@ -78,58 +92,181 @@ namespace TravailSession
             Console.WriteLine("Quel sera son surnom: /n");
             surnom = Console.ReadLine();
 
-           public Monstre monstreAAjouter = new Monstre(nom, surnom, caracteristiques);
-        joueur.Ajouter(monstreAAjouter, joueur);
-            return joueur;
-            }
-        
-
-
-    //Ajoute un monstre a l'equipe et retourne l'equipe
-    public Equipe Ajouter(Monstre monstre, Equipe equipe)
-    {
-        if (equipe.monstreActif == null)
-            equipe.monstreActif = monstre;
-        else if (equipe.monstre2 == null)
-            equipe.monstre2 = monstre;
-        else if (equipe.monstre3 == null)
-            equipe.monstre3 = monstre;
-        else if (equipe.monstre4 == null)
-            equipe.monstre4 = monstre;
-        else if (equipe.monstre5 == null)
-            equipe.monstre5 = monstre;
-        else Console.WriteLine("Vous avez deja 5 monstres dans votre equipe!");
-
-        return equipe;
-    }
+            Monstre monstreAAjouter = new Monstre(monstres.get.nom(id), surnom, monstres.get.caracteristiquesMonstre(id)); //Initialise le monstre
+            joueur.Ajouter(monstreAAjouter, joueur); //Ajoute le monstre a l'equipe
+            return joueur; //Retoure lequipe avec le monstreActif dedans
+        }
 
 
 
-    //Selon la difficulte choisi, on genere une equipe de taille equivalente a celle du joueur(0 a 5)
-    public Equipe ChoisirEnnemis(Difficulte difficulte)
-    {
-        throw new NotImplementedException();
-    }
-
-
-
-    //Permet au joueur de choisir une equipe de 1 a 5 monstres parmi les monstresCaptures
-    public Equipe ChoisirEquipe()
-    {
-
-        throw new NotImplementedException();
-    }
-
-
-
-    //Affiche une equipe de 0 a 5 monstres
-    public void AfficherEquipe()
-    {
-        foreach (Monstre monstre in equipe)
+        //Ajoute un monstre a l'equipe et retourne l'equipe
+        public Equipe Ajouter(Monstre monstre, Equipe equipe)
         {
-            monstre.ToString();
+            if (equipe.monstreActif == null)
+                equipe.monstreActif = monstre;
+            else if (equipe.monstre2 == null)
+                equipe.monstre2 = monstre;
+            else if (equipe.monstre3 == null)
+                equipe.monstre3 = monstre;
+            else if (equipe.monstre4 == null)
+                equipe.monstre4 = monstre;
+            else if (equipe.monstre5 == null)
+                equipe.monstre5 = monstre;
+            else Console.WriteLine("Vous avez deja 5 monstres dans votre equipe!");
+
+            equipe.taille = equipe.taille++;
+            return equipe;
+        }
+
+
+
+        //Selon la difficulte choisi, on genere une equipe de taille equivalente a celle du joueur(0 a 5)
+        public Equipe ChoisirEnnemis(Difficulte difficulte, Joueur joueur)
+        {
+            string difficulteMonstres = "Difficulte par defaut.";
+            bool estValide;
+            Equipe ennemi = new Equipe(equipe);
+            int laDifficulte = (int)difficulte.LaDifficulte; //De 0(tresFacile) a 4(tresDifficile)
+
+            //Mettre la difficulte (int) en String
+            switch (laDifficulte)
+            {
+                case 0:
+                    difficulteMonstres = "tres facile";
+                    break;
+
+                case 1:
+                    difficulteMonstres = "facile";
+                    break;
+
+                case 2:
+                    difficulteMonstres = "moyen";
+                    break;
+
+                case 3:
+                    difficulteMonstres = "difficile";
+                    break;
+
+                case 4:
+                    difficulteMonstres = "tres difficile";
+                    break;
+            }
+
+            //Va chercher la taille de l'equipe du joueur
+            int taille = joueur.Equipe.taille;
+
+            do
+            {
+                estValide = false;
+
+                //Selon la taille
+                switch (taille)
+                {
+                    case 0:
+                        Console.WriteLine("Vous n'avez aucun monstre dans votre equipe! Ceci est anormal.");
+                        break;
+
+
+                    case 1:
+                        //selon la difficulte
+                        switch (laDifficulte)
+                        {
+                            case 0:
+
+                                break;
+
+                            case 1:
+
+                                break;
+
+                            case 2:
+
+                                break;
+
+                            case 3:
+
+                                break;
+
+                            case 4:
+
+                                break;
+                        }
+
+                        Console.WriteLine("Preparez vous a battre {0} monstre {1}!", taille, difficulteMonstres);
+                        break;
+
+
+                    case 2:
+                        //selon la difficulte
+                        switch (laDifficulte)
+                        {
+
+                        }
+
+                        Console.WriteLine("Preparez vous a battre {0} monstres {1}!", taille, difficulteMonstres);
+                        break;
+
+
+                    case 3:
+                        //selon la difficulte
+                        switch (laDifficulte)
+                        {
+
+                        }
+
+                        Console.WriteLine("Preparez vous a battre {0} monstres {1}!", taille, difficulteMonstres);
+                        break;
+
+
+                    case 4:
+                        //selon la difficulte
+                        switch (laDifficulte)
+                        {
+
+                        }
+
+                        Console.WriteLine("Preparez vous a battre {0} monstres {1}!", taille, difficulteMonstres);
+                        break;
+
+                    case 5:
+                        //selon la difficulte
+                        switch (laDifficulte)
+                        {
+
+                        }
+
+                        Console.WriteLine("Preparez vous a battre {0} monstres {1}!", taille, difficulteMonstres);
+                        break;
+
+
+                    default:
+                        Console.WriteLine("Une erreur s'est produite avec la taille de votre equipe.");
+                        estValide = true;
+                        break;
+                }
+                return ennemi;
+            } while (estValide);
+        }
+
+
+
+        //Permet au joueur de choisir une equipe de 1 a 5 monstres parmi les monstresCaptures
+        public Equipe ChoisirEquipe()
+        {
+
+            throw new NotImplementedException();
+        }
+
+
+
+        //Affiche une equipe de 0 a 5 monstres
+        public void AfficherEquipe()
+        {
+            foreach (Monstre monstre in equipe)
+            {
+                monstre.ToString();
+            }
         }
     }
-}
 }
 

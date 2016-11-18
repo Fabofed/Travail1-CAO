@@ -15,7 +15,7 @@ namespace TravailSession
         private int recompensePts { get; set; }
         private int recompenseArgent { get; set; }
         private Equipe ennemi;
-
+        private Joueur joueur;
 
         public enum DifficulteCombat
         {
@@ -28,6 +28,22 @@ namespace TravailSession
             this.difficulte = difficulte;
             this.recompensePts = recompensePts;
             this.recompenseArgent = recompenseArgent;
+        }
+
+        public Joueur Joueur
+        {
+            get
+            {
+                return joueur;
+            }
+        }
+
+        public DifficulteCombat LaDifficulte
+        {
+            get
+            {
+                return difficulte;
+            }
         }
 
 
@@ -44,35 +60,35 @@ namespace TravailSession
                 {
                     case 0:
                         Difficulte tresFacile = new Difficulte(DifficulteCombat.tresFacile, 1000, 100);
-                        ennemi = ennemi.ChoisirEnnemis(tresFacile); //Methode choisi une liste de monstres
+                        ennemi = ennemi.ChoisirEnnemis(tresFacile, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("E-Z PEAZY!");
                         break;
 
 
                     case 1:
                         Difficulte facile = new Difficulte(DifficulteCombat.facile, 3000, 300);
-                        ennemi = ennemi.ChoisirEnnemis(facile); //Methode choisi une liste de monstres
+                        ennemi = ennemi.ChoisirEnnemis(facile, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("Ca va etre du gateau!");
                         break;
 
 
                     case 2:
                         Difficulte moyen = new Difficulte(DifficulteCombat.moyen, 10000, 1000);
-                        ennemi = ennemi.ChoisirEnnemis(moyen); //Methode choisi une liste de monstres
+                        ennemi = ennemi.ChoisirEnnemis(moyen, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("C'est toujours bon d'etre dans la moyenne, il y a mieu et il y a pire!");
                         break;
 
 
                     case 3:
                         Difficulte difficile = new Difficulte(DifficulteCombat.difficile, 40000, 4000);
-                        ennemi = ennemi.ChoisirEnnemis(difficile); //Methode choisi une liste de monstres
+                        ennemi = ennemi.ChoisirEnnemis(difficile, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("Vous aimez ca avoir la vie difficile!");
                         break;
 
 
                     case 4:
                         Difficulte tresDifficile = new Difficulte(DifficulteCombat.tresDifficile, 100000, 10000);
-                        ennemi = ennemi.ChoisirEnnemis(tresDifficile); //Methode choisi une liste de monstres
+                        ennemi = ennemi.ChoisirEnnemis(tresDifficile, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("Certains disent que l'etre humain est naturellement singlé....");
                         break;
 
