@@ -20,7 +20,7 @@ namespace Projet
        // public TypeElement element { get; private set; }
 
 
-        public Habilete(string nom, string description, int gain, int puissance, /*TypeElement element = TypeElement.PretaAttaquer*/)
+        public Habilete(string nom, string description, int gain, int puissance /*TypeElement element = TypeElement.PretaAttaquer*/)
         {
             this.Nom = nom;
             this.Description = description;
