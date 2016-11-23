@@ -120,8 +120,9 @@ namespace TravailSession
 
 
 
+        // Boucler pour i allant de 0 a la taille de lequipe. Cree un monstre en fonctio nde la difficulte.
         //Selon la difficulte choisi, on genere une equipe de taille equivalente a celle du joueur(0 a 5)
-        public Equipe ChoisirEnnemis(Difficulte difficulte, Joueur joueur)
+        public Equipe ChoisirEnnemis(Difficulte.DifficulteCombat difficulte, Joueur joueur/*mettre la taille ici  */) //Code modifier avec prof
         {
             string difficulteMonstres = "Difficulte par defaut.";
             bool estValide;

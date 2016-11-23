@@ -10,8 +10,9 @@ namespace TravailSession
 {
     class Joueur
     {
-        private string nom { get; set; }
-        protected int argent { get; set; }
+        //mettre en majuscule
+        protected string Nom { get; set; }
+        protected int Argent { get; set; }
         protected Inventaire inventaire { get; set; }
         protected List<Monstre> monstresCaptures = new List<Monstre>();
         protected Equipe joueur = new Equipe();

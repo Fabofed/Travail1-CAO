@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using TravailSession;
-using static TravailSession.Difficulte;
-
 namespace TravailSession
 {
-    class Difficulte
+    class Difficulte//Recompense
     {
         private DifficulteCombat difficulte { get; set; }
         private int recompensePts { get; set; }
@@ -48,9 +46,10 @@ namespace TravailSession
 
 
         //Methode qui recoit une difficulte et genere une equipe avec les recompenses correspondantes
-        public Equipe GenererEquipe(int difficulte)
+        //switch sur difficulte combat deja fournit plus haut
+        public Equipe GenererEquipe(/*int difficulte*/)
         {
-            bool estValide = false;
+           /* bool estValide = false;
 
             do
             {
@@ -58,12 +57,13 @@ namespace TravailSession
 
                 switch (difficulte)
                 {
-                    case 0:
-                        Difficulte tresFacile = new Difficulte(DifficulteCombat.tresFacile, 1000, 100);
-                        ennemi = ennemi.ChoisirEnnemis(tresFacile, this.joueur); //Methode choisi une liste de monstres
-                        Console.WriteLine("E-Z PEAZY!");
-                        break;
-
+                    //case DifficulteCombat.tresFacile
+                    case 0:*/
+                      /*  Difficulte tresFacile = new Difficulte(DifficulteCombat.tresFacile, 1000, 100);*/
+                        ennemi = ennemi.ChoisirEnnemis(difficulte, this.joueur); //Difficulte.this.Joueur;
+                  /*      Console.WriteLine("E-Z PEAZY!");*/
+                       // break;
+/*
 
                     case 1:
                         Difficulte facile = new Difficulte(DifficulteCombat.facile, 3000, 300);
@@ -91,7 +91,7 @@ namespace TravailSession
                         ennemi = ennemi.ChoisirEnnemis(tresDifficile, this.joueur); //Methode choisi une liste de monstres
                         Console.WriteLine("Certains disent que l'etre humain est naturellement singlé....");
                         break;
-
+                        
 
                     default:
                         Console.WriteLine("Vous devez choisir un nombre en 0 et 4.");
@@ -99,7 +99,7 @@ namespace TravailSession
                         break;
                 }
                 return ennemi;
-            } while (estValide);
+            } while (estValide);*/
         }
     }
 }
