@@ -34,7 +34,7 @@ namespace TravailSession
  
         #region Constructeurs
 
-        /**
+        /*
          * Constructeur par défaut
          */
         public Monstre()
@@ -45,7 +45,7 @@ namespace TravailSession
             etat = new List<EtatActif>();
         }
 
-        /**
+        /*
          * Constructeur avec Argumennts
          */
         public Monstre(string Nom, string Surnom, Caracteristiques caracteristiques)
@@ -58,6 +58,7 @@ namespace TravailSession
             this.CaracteristiquesMonstre = caracteristiques;
             this.etat = new List<EtatActif>();
             etat.Add(EtatActif.Vivant);
+            
         }
 
         #endregion
