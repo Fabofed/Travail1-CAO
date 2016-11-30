@@ -7,13 +7,13 @@ using System.IO;
 using TravailSession;
 namespace TravailSession
 {
-    class Difficulte//Recompense
+    class Recompense
     {
-        private DifficulteCombat difficulte { get; set; }
-        private int recompensePts { get; set; }
-        private int recompenseArgent { get; set; }
-        private Equipe ennemi;
-        private Joueur joueur;
+        private DifficulteCombat Difficulte { get; set; }
+        private int RecompensePts { get; set; }
+        private int RecompenseArgent { get; set; }
+        private Equipe EquipeEnnemi;
+        private Joueur CeJoueur;
 
         public enum DifficulteCombat
         {
@@ -21,18 +21,27 @@ namespace TravailSession
         };
 
 
-        public Difficulte(DifficulteCombat difficulte, int recompensePts, int recompenseArgent)
+        public Recompense(DifficulteCombat difficulte, int recompensePts, int recompenseArgent)
         {
-            this.difficulte = difficulte;
-            this.recompensePts = recompensePts;
-            this.recompenseArgent = recompenseArgent;
+            this.Difficulte = difficulte;
+            this.RecompensePts = recompensePts;
+            this.RecompenseArgent = recompenseArgent;
         }
 
-        public Joueur Joueur
+        public Equipe Joueur
         {
             get
             {
-                return joueur;
+                return CeJoueur.Equipe;
+            }
+        }
+
+
+        public Equipe Ennemi
+        {
+            get
+            {
+                return EquipeEnnemi;
             }
         }
 
@@ -40,7 +49,7 @@ namespace TravailSession
         {
             get
             {
-                return difficulte;
+                return Recompense;
             }
         }
 

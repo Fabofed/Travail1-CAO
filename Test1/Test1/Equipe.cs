@@ -10,39 +10,38 @@ namespace TravailSession
 {
     class Equipe
     {
-        public Monstre monstreActif = new Monstre(); //Monstre 1 de depart obligatoire
-        public Monstre monstre2 = new Monstre(); //Monstre 2
-        public Monstre monstre3 = new Monstre(); //Monstre 3
-        public Monstre monstre4 = new Monstre(); //Monstre 4
-        public Monstre monstre5 = new Monstre(); //Monstre 5
+        public Monstre MonstreActif = new Monstre(); //Monstre 1 de depart obligatoire
+        public Monstre Monstre2 = new Monstre(); //Monstre 2
+        public Monstre Monstre3 = new Monstre(); //Monstre 3
+        public Monstre Monstre4 = new Monstre(); //Monstre 4
+        public Monstre Monstre5 = new Monstre(); //Monstre 5
 
+        public Monstre[] EquipeJoueur { get; set; }
+        public int Taille { get; private set; }
 
-        public Monstre[] equipe { get; set; }
-        public int taille { get; private set; }
-
-        public Equipe(Monstre[] equipe)
+        public Equipe(Monstre[] EquipeJoueur)
         {
             Monstre[] equipeJoueur = new Monstre[5];
-            equipeJoueur[0] = monstreActif;
-            equipeJoueur[1] = monstre2;
-            equipeJoueur[2] = monstre3;
-            equipeJoueur[3] = monstre4;
-            equipeJoueur[4] = monstre5;
+            equipeJoueur[0] = MonstreActif;
+            equipeJoueur[1] = Monstre2;
+            equipeJoueur[2] = Monstre3;
+            equipeJoueur[3] = Monstre4;
+            equipeJoueur[4] = Monstre5;
 
-            taille = 0;
-            this.equipe = equipeJoueur;
+            Taille = 0;
+            this.EquipeJoueur = equipeJoueur;
         }
 
         public Equipe()
         {
             Monstre[] equipeJoueur = new Monstre[5];
-            equipeJoueur[0] = monstreActif;
-            equipeJoueur[1] = monstre2;
-            equipeJoueur[2] = monstre3;
-            equipeJoueur[3] = monstre4;
-            equipeJoueur[4] = monstre5;
+            equipeJoueur[0] = MonstreActif;
+            equipeJoueur[1] = Monstre2;
+            equipeJoueur[2] = Monstre3;
+            equipeJoueur[3] = Monstre4;
+            equipeJoueur[4] = Monstre5;
 
-            this.equipe = equipeJoueur;
+            this.EquipeJoueur = equipeJoueur;
         }
 
 
