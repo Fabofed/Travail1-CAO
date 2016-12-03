@@ -72,7 +72,8 @@ namespace TravailSession
                 {
                     Console.WriteLine("Veuillez entrer un ID valide");
                 }
-            } while (estValide);
+            }
+            while (estValide);
 
 
             string surnom;
