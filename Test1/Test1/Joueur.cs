@@ -10,48 +10,32 @@ namespace TravailSession
 {
     class Joueur
     {
-        //mettre en majuscule
-        protected string Nom { get; set; }
-        protected int Argent { get; set; }
-        protected Inventaire inventaire { get; set; }
-        protected List<Monstre> monstresCaptures = new List<Monstre>();
-        protected Equipe joueur = new Equipe();
+        // Constantes représentant les caractériqtiques de départ du joueur.
+        private const int NIVEAU_DEPART = 1;
+        private const int ARGENT_DEPART = 1000;
+        
+        private string nom { get; set; }
+        private int argent { get; set; }
+        private Inventaire inventaire { get; set; }
+        private List<Monstre> monstresCaptures = new List<Monstre>();
+        private Equipe joueur = new Equipe();
 
         //  monstresCaptures.Add(new Monstre() {nom="Charmander"..... ETC. });
 
-        public string Nom  
+        #region Constructeurs
+        public Joueur()
         {
-            get
-            {
-                return nom;
-            }
-        }
 
-        public int Argent
-        {
-            get
-            {
-                return argent;
-            }
         }
-
-        public Equipe Equipe
-        {
-            get
-            {
-                return joueur;
-            }
-        }
-
-        public Joueur(string nom, int argent, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe joueur)
+        public Joueur(string nom, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe joueur)
         {
             this.nom = nom;
-            this.argent = argent;
+            this.argent = ARGENT_DEPART;
             this.inventaire = inventaire;
             this.monstresCaptures = monstresCaptures;
             this.joueur = joueur;
         }
-
+        #endregion
         public override string ToString()
         {
             return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + joueur;
