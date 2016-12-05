@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravailSession
 {
-    class Guerisson : Effet
+    class Guerison : Effet
     {
     }
 }

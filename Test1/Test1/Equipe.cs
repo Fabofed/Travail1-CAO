@@ -49,7 +49,8 @@ namespace TravailSession
         //Parcours la liste de tout les monstres et presente 3 monstres. Le joueur en choisi 1 et donne un surnom a son monstre
         public Equipe ChoisirMonstreActif()
         {
-            Equipe joueur = new Equipe(equipe); //Instancie l'equipe du joueur (avec 5 places)
+
+            Equipe joueur = new Equipe(EquipeJoueur); //Instancie l'equipe du joueur (avec 5 places)
             List<Monstre> temp = new List<Monstre>(); //Une liste temporaire pour les 3 propositions
 
             Console.WriteLine("Voici la liste de tous les monstres du jeux: /n");
@@ -66,7 +67,7 @@ namespace TravailSession
 
             int choix1 = temp[0].id;
             int choix2 = temp[1].id;
-            int choix3 = temp[3].id;
+            int choix3 = temp[2].id;
 
             int id;
             Console.WriteLine("Choisissez un monstre parmis les trois proposés. Il vous servira comme monstre de depart /nEntrer son ID: ");
@@ -101,31 +102,31 @@ namespace TravailSession
         //Ajoute un monstre a l'equipe et retourne l'equipe
         public Equipe Ajouter(Monstre monstre, Equipe equipe)
         {
-            if (equipe.monstreActif == null)
-                equipe.monstreActif = monstre;
-            else if (equipe.monstre2 == null)
-                equipe.monstre2 = monstre;
-            else if (equipe.monstre3 == null)
-                equipe.monstre3 = monstre;
-            else if (equipe.monstre4 == null)
-                equipe.monstre4 = monstre;
-            else if (equipe.monstre5 == null)
-                equipe.monstre5 = monstre;
+            if (equipe.MonstreActif == null)
+                equipe.MonstreActif = monstre;
+            else if (equipe.Monstre2 == null)
+                equipe.Monstre2 = monstre;
+            else if (equipe.Monstre3 == null)
+                equipe.Monstre3 = monstre;
+            else if (equipe.Monstre4 == null)
+                equipe.Monstre4 = monstre;
+            else if (equipe.Monstre5 == null)
+                equipe.Monstre5 = monstre;
             else Console.WriteLine("Vous avez deja 5 monstres dans votre equipe!");
 
-            equipe.taille = equipe.taille++;
+            equipe.Taille = equipe.Taille++;
             return equipe;
         }
 
 
 
-        // Boucler pour i allant de 0 a la taille de lequipe. Cree un monstre en fonctio nde la difficulte.
+        // Boucler pour i allant de 0 a la taille de lequipe. Cree un monstre en fonction de la difficulte.
         //Selon la difficulte choisi, on genere une equipe de taille equivalente a celle du joueur(0 a 5)
-        public Equipe ChoisirEnnemis(Difficulte.DifficulteCombat difficulte, Joueur joueur/*mettre la taille ici  */) //Code modifier avec prof
+        public Equipe ChoisirEnnemis(Recompense.DifficulteCombat difficulte, Equipe.EquipeJoueur.Taille uneTaille) //Code modifier avec prof
         {
             string difficulteMonstres = "Difficulte par defaut.";
             bool estValide;
-            Equipe ennemi = new Equipe(equipe);
+            Equipe ennemi = new Equipe(EquipeJoueur);
             int laDifficulte = (int)difficulte.LaDifficulte; //De 0(tresFacile) a 4(tresDifficile)
 
             //Mettre la difficulte (int) en String
@@ -262,7 +263,7 @@ namespace TravailSession
         //Affiche une equipe de 0 a 5 monstres
         public void AfficherEquipe()
         {
-            foreach (Monstre monstre in equipe)
+            foreach (Monstre monstre in EquipeJoueur)
             {
                 monstre.ToString();
             }
