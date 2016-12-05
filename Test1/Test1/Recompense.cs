@@ -12,8 +12,8 @@ namespace TravailSession
         private DifficulteCombat Difficulte { get; set; }
         private int RecompensePts { get; set; }
         private int RecompenseArgent { get; set; }
-        private Equipe EquipeEnnemi;
-        private Joueur CeJoueur;
+        private Equipe equipeEnnemi;
+        private Joueur LeJoueur;
 
         public enum DifficulteCombat
         {
@@ -28,38 +28,68 @@ namespace TravailSession
             this.RecompenseArgent = recompenseArgent;
         }
 
-        public Equipe Joueur
+
+        public Equipe EquipeJoueur
         {
             get
             {
-                return CeJoueur.Equipe;
+                return LeJoueur.Equipe;
             }
         }
 
 
-        public Equipe Ennemi
+        public Equipe EquipeEnnemi
         {
             get
             {
-                return EquipeEnnemi;
+                return equipeEnnemi;
             }
         }
+
 
         public DifficulteCombat LaDifficulte
         {
             get
             {
-                return Recompense;
+                return Difficulte;
             }
         }
 
 
-        //Methode qui recoit une difficulte et genere une equipe avec les recompenses correspondantes
-        //switch sur difficulte combat deja fournit plus haut
-        public Equipe GenererEquipe(/*int difficulte*/)
+        //Methode qui recoit une difficulte et genere une recompense avec les recompenses correspondantes
+        public Recompense GenererEquipe(Recompense.DifficulteCombat Difficulte)
         {
-           
-        
+            Recompense RecompenseDuMatch = new Recompense(Difficulte, 0, 0);
+
+            switch (Difficulte)
+            {
+                case 0:
+                    RecompenseDuMatch.RecompenseArgent = 1000;
+                    RecompenseDuMatch.RecompensePts = 1000;
+                    break;
+
+                case (DifficulteCombat)1:
+                    RecompenseDuMatch.RecompenseArgent = 2000;
+                    RecompenseDuMatch.RecompensePts = 2000;
+                    break;
+
+                case (DifficulteCombat)2:
+                    RecompenseDuMatch.RecompenseArgent = 3000;
+                    RecompenseDuMatch.RecompensePts = 3000;
+                    break;
+
+                case (DifficulteCombat)3:
+                    RecompenseDuMatch.RecompenseArgent = 4000;
+                    RecompenseDuMatch.RecompensePts = 4000;
+                    break;
+
+                case (DifficulteCombat)4:
+                    RecompenseDuMatch.RecompenseArgent = 5000;
+                    RecompenseDuMatch.RecompensePts = 5000;
+                    break;
+            }
+
+            return RecompenseDuMatch;
         }
     }
 }
