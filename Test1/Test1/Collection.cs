@@ -9,7 +9,7 @@ namespace TravailSession
     //Classe mere de Magasin et Inventaire
     public abstract class Collection
     {
-        private List<Item> items { get; set; }
+        protected List<Item> items { get; set; }
 
         public Collection()
         {

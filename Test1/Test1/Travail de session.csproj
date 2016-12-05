@@ -47,7 +47,7 @@
     <Compile Include="Collection.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Degat.cs" />
-    <Compile Include="Difficulte.cs" />
+    <Compile Include="Recompense.cs" />
     <Compile Include="Effet.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Equipe.cs" />

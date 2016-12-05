@@ -71,7 +71,7 @@ namespace TravailSession
             get { return id; }
             set { id = value; }
         }
-        public string Nom { get; }
+        public string Nom { get; private set; }
         public string Surnom
         {
             get { return surnom; }

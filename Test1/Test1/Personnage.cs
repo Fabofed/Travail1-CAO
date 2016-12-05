@@ -8,6 +8,8 @@ namespace TravailSession
 {
     class Personnage : Joueur
     {
+        // aggregation et non heritage
+
         private Sexe sexe { get; set; }
         private int age { get; set; }
 

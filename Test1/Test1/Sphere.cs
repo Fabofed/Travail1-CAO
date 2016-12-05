@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravailSession
 {
-    class Sphere : Item
+    public class Sphere : Item
     {
         public Sphere(String nom, String description, int valeur, Element type, List<Effet> effets) : base(nom, description, valeur, type, effets)
         {
