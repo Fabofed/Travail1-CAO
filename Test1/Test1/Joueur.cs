@@ -10,7 +10,7 @@ namespace TravailSession
 {
     class Joueur
     {
-        // Constantes représentant les caractériqtiques de départ du joueur.
+        // Constantes représentant les caractéristiques de départ du joueur.
         private const int NIVEAU_DEPART = 1;
         private const int ARGENT_DEPART = 1000;
 

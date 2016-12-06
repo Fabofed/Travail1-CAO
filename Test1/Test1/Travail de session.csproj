@@ -53,7 +53,7 @@
     <Compile Include="Equipe.cs" />
     <Compile Include="Faiblesse.cs" />
     <Compile Include="Force.cs" />
-    <Compile Include="Guerisson.cs" />
+    <Compile Include="Guerison.cs" />
     <Compile Include="Habilete.cs" />
     <Compile Include="Inventaire.cs" />
     <Compile Include="Item.cs" />
