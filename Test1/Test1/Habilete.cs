@@ -17,7 +17,8 @@ namespace TravailSession
         public string Description { get; private set; }
         public int Gain { get; private set; }
         public int Puissance { get; private set; }
-       // public TypeElement element { get; private set; }
+
+        // public TypeElement element { get; private set; }
 
 
         public Habilete(string nom, string description, int gain, int puissance /*TypeElement element = TypeElement.PretaAttaquer*/)

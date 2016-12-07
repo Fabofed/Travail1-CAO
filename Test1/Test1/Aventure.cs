@@ -24,7 +24,7 @@ namespace TravailSession
             listeMonstre = Monstre.ChargerListeMonstre();
         }
 
-        public void acheter_pokeball(int argentActuel)
+        public void acheterSphere(int argentActuel)
         {
             joueur.Inventaire.Sphere += argentActuel;
             joueur.Argent = joueur.Argent - (100 * argentActuel);

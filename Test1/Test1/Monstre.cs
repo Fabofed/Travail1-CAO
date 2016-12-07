@@ -1,13 +1,16 @@
-﻿using Projet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
+using System.IO;
+using System.Xml.Serialization;
+
 
 namespace TravailSession
 {
+    [Serializable]
 
     enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
     enum EtatActif { Mort, Vivant, Paralyse, Empoisonne, Enrage }
@@ -21,6 +24,7 @@ namespace TravailSession
         private Random generateur  = new Random();
 
         public int id;
+
         //private string nom; 
         private string surnom;
         private byte rarete;
@@ -62,7 +66,25 @@ namespace TravailSession
         }
 
         #endregion
-        
+
+        #region Serialization
+        //Enregistrer liste de Monstre
+        public static void Enregistrer(Monstre[] liste)
+        {
+            XmlSerializer format = new XmlSerializer(typeof(Monstre[]));
+            using (Stream stream = new FileStream(@".\liste_monstres.xml", FileMode.Create, FileAccess.Write, FileShare.None)) format.Serialize(stream, liste);
+        }
+
+        //Charger liste de Monstre
+        public static Monstre[] Charger()
+        {
+            Monstre[] monstre;
+            XmlSerializer format = new XmlSerializer(typeof(Monstre[]));
+            using (Stream stream = new FileStream(@"liste_monstres.xml", FileMode.Open, FileAccess.Read, FileShare.None)) monstre = (Monstre[])format.Deserialize(stream);
+            return monstre;
+        }
+        #endregion
+
 
         #region Propriétés (Acesseurs et Mutateurs)
 
@@ -115,6 +137,7 @@ namespace TravailSession
                 }
             }
         }
+
         public byte NiveauExperience { get; set; }
         public int PointsExperience
         {
@@ -153,9 +176,27 @@ namespace TravailSession
         }
 
         #endregion
-        
+
 
         #region Autres Méthodes
+
+        //Calcul niveau d'experience selon les points d'experience
+        public void CalculNiveau()
+        {
+
+        }
+
+        //Ajoute de l'experience et modifie le niveau si necessaire
+        public void AjoutExperience(int experienceAAjouter)
+        {
+            this.pointsExperience += experienceAAjouter;
+            int exp = this.pointsExperience;
+            if (exp == 100 || exp == 250 || exp == 500 || exp == 1000 || exp == 1600 || exp == 3000)
+            {
+                this.niveauExperience++;
+                this.CalculNiveau();
+            }
+        }
 
         /**
          * Permet de choisir une habilete active du monstre

@@ -33,7 +33,11 @@ namespace TravailSession
 
         public Joueur()
         {
-
+            this.nom = nom;
+            this.argent = ARGENT_DEPART;
+            this.inventaire = inventaire;
+            this.monstresCaptures = monstresCaptures;
+            this.equipe = equipe;
         }
 
         public Equipe Equipe
