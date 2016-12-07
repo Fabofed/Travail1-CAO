@@ -120,7 +120,7 @@ namespace TravailSession
                 equipe.monstre5 = monstre;
             else Console.WriteLine("Vous avez deja 5 monstres dans votre equipe!");
 
-            equipe.taille = equipe.taille++;
+            equipe.taille++;
             return equipe;
         }
 
