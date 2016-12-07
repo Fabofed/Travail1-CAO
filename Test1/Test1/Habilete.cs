@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet
+namespace TravailSession
 {
   
     enum CibleHabilete { Soi, Ennemi}
 
     enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
 
-    public class Habilete
+    class Habilete
     {
         public string Nom { get; private set; }
         public string Description { get; private set; }

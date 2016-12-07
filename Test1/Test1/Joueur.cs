@@ -22,19 +22,6 @@ namespace TravailSession
 
         //  monstresCaptures.Add(new Monstre() {nom="Charmander"..... ETC. });
 
-        public Joueur()
-        {
-
-        }
-
-        public Equipe Equipe
-        {
-            get
-            {
-                return equipe;
-            }
-        }
-
         public Joueur(string nom, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe equipe)
         {
             this.nom = nom;
@@ -44,9 +31,50 @@ namespace TravailSession
             this.equipe = equipe;
         }
 
+        public Joueur()
+        {
+
+        }
+
+        public Equipe Equipe
+        {
+            get
+            {
+                return this.equipe;
+            }
+        }
+
+        public Inventaire Inventaire
+        {
+            get
+            {
+                return this.inventaire;
+            }
+        }
+
+        public List<Monstre> MonstresCaptures
+        {
+            get
+            {
+                return this.monstresCaptures;
+            }
+        }
+
+        public int Argent
+        {
+            get
+            {
+                return this.argent;
+            }
+            set
+            {
+                this.argent = value;
+            }
+        }
+
         public override string ToString()
         {
-            return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + joueur;
+            return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + equipe;
         }
 
     }

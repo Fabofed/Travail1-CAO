@@ -9,11 +9,11 @@ namespace TravailSession
 {
     class Recompense
     {
-        private DifficulteCombat Difficulte { get; set; }
-        private int RecompensePts { get; set; }
-        private int RecompenseArgent { get; set; }
+        private DifficulteCombat difficulte { get; set; }
+        private int recompensePts { get; set; }
+        private int recompenseArgent { get; set; }
         private Equipe equipeEnnemi;
-        private Joueur LeJoueur;
+        private Joueur leJoueur;
 
         public enum DifficulteCombat
         {
@@ -23,9 +23,9 @@ namespace TravailSession
 
         public Recompense(DifficulteCombat difficulte, int recompensePts, int recompenseArgent)
         {
-            this.Difficulte = difficulte;
-            this.RecompensePts = recompensePts;
-            this.RecompenseArgent = recompenseArgent;
+            this.difficulte = difficulte;
+            this.recompensePts = recompensePts;
+            this.recompenseArgent = recompenseArgent;
         }
 
 
@@ -33,7 +33,7 @@ namespace TravailSession
         {
             get
             {
-                return LeJoueur.Equipe;
+                return this.leJoueur.Equipe;
             }
         }
 
@@ -42,7 +42,7 @@ namespace TravailSession
         {
             get
             {
-                return equipeEnnemi;
+                return this.equipeEnnemi;
             }
         }
 
@@ -51,45 +51,45 @@ namespace TravailSession
         {
             get
             {
-                return Difficulte;
+                return this.difficulte;
             }
         }
 
 
         //Methode qui recoit une difficulte et genere une recompense avec les recompenses correspondantes
-        public Recompense GenererEquipe(Recompense.DifficulteCombat Difficulte)
+        public Recompense GenererEquipe(Recompense.DifficulteCombat difficulte)
         {
-            Recompense RecompenseDuMatch = new Recompense(Difficulte, 0, 0);
+            Recompense recompenseDuMatch = new Recompense(difficulte, 0, 0);
 
-            switch (Difficulte)
+            switch (difficulte)
             {
                 case 0:
-                    RecompenseDuMatch.RecompenseArgent = 1000;
-                    RecompenseDuMatch.RecompensePts = 1000;
+                    recompenseDuMatch.recompenseArgent = 1000;
+                    recompenseDuMatch.recompensePts = 1000;
                     break;
 
                 case (DifficulteCombat)1:
-                    RecompenseDuMatch.RecompenseArgent = 2000;
-                    RecompenseDuMatch.RecompensePts = 2000;
+                    recompenseDuMatch.recompenseArgent = 2000;
+                    recompenseDuMatch.recompensePts = 2000;
                     break;
 
                 case (DifficulteCombat)2:
-                    RecompenseDuMatch.RecompenseArgent = 3000;
-                    RecompenseDuMatch.RecompensePts = 3000;
+                    recompenseDuMatch.recompenseArgent = 3000;
+                    recompenseDuMatch.recompensePts = 3000;
                     break;
 
                 case (DifficulteCombat)3:
-                    RecompenseDuMatch.RecompenseArgent = 4000;
-                    RecompenseDuMatch.RecompensePts = 4000;
+                    recompenseDuMatch.recompenseArgent = 4000;
+                    recompenseDuMatch.recompensePts = 4000;
                     break;
 
                 case (DifficulteCombat)4:
-                    RecompenseDuMatch.RecompenseArgent = 5000;
-                    RecompenseDuMatch.RecompensePts = 5000;
+                    recompenseDuMatch.recompenseArgent = 5000;
+                    recompenseDuMatch.recompensePts = 5000;
                     break;
             }
 
-            return RecompenseDuMatch;
+            return recompenseDuMatch;
         }
     }
 }

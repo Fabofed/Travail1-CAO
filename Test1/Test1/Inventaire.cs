@@ -8,6 +8,7 @@ using TravailSession;
 
 namespace TravailSession
 {
+    [Serializable]
     //Herite de la classe Collection
     class Inventaire : Collection
     {

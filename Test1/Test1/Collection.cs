@@ -16,14 +16,35 @@ namespace TravailSession
             items = new List<Item>();
         }
 
-        public void Ajouter(Item item)
+        //Ajoute une item a une collection
+        public Collection Ajouter(Item item, Collection collection) //Passe la collection et l'item en parametre
         {
-            Item aAjouter = item;
+            collection.items.Add(item); //Ajoute l'item a la collection
+            return collection;
         }
+        
 
-        public void Supprimer(Item item)
+    public Collection Supprimer(Item item, Collection collection) //Passe la collection et l'item en parametre
         {
-            Item aRetirer = item;
+            foreach (Item unItem in collection)
+            {
+
+
+            }
+            collection.items.Remove(item); //Enleve l'item a la collection
+            return collection;
+        } 
+
+
+        public void Afficher()
+        {
+            foreach (Item item in items)
+            {
+                item.ToString();
+            }
         }
     }
+
+
 }
+
