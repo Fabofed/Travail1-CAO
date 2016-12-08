@@ -8,7 +8,7 @@ using TravailSession;
 
 namespace TravailSession
 {
-    struct Caracteristiques
+    public struct Caracteristiques
     {
 
         private int ptsVieBase;

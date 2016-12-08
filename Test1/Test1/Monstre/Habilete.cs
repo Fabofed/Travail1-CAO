@@ -11,7 +11,7 @@ namespace TravailSession
 
     enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
 
-    class Habilete
+    public class Habilete
     {
         public string Nom { get; private set; }
         public string Description { get; private set; }

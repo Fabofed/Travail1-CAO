@@ -31,7 +31,7 @@ namespace TravailSession
         private byte niveauExperience;
         private int pointsExperience;
         private Caracteristiques caracteristiquesMonstre;
-        private List<EtatActif> etat { get; set; }
+        private List<EtatActif> etats { get; set; }
         private List<Habilete> habiletesPotentielles;
         private List<Habilete> habiletesActives;
 
@@ -46,7 +46,7 @@ namespace TravailSession
             this.Id = 1;
             this.Nom = "Monstre";
             this.Surnom = null;
-            etat = new List<EtatActif>();
+            etats = new List<EtatActif>();
         }
 
         /*
@@ -60,8 +60,8 @@ namespace TravailSession
             this.Rarete = rarete;
             this.NiveauExperience = 1;
             this.CaracteristiquesMonstre = caracteristiques;
-            this.etat = new List<EtatActif>();
-            etat.Add(EtatActif.Vivant);
+            this.etats = new List<EtatActif>();
+            etats.Add(EtatActif.Vivant);
             
         }
 
@@ -159,12 +159,12 @@ namespace TravailSession
             get { return this.CaracteristiquesMonstre.PtsVieTotal; }
             set { this.caracteristiquesMonstre.PtsVieTotal = value; }
         }
-        public List<EtatActif> Etat
+        public List<EtatActif> Etats
         {
             get
-            { return this.etat;
+            { return this.etats;
             }
-            set { this.etat = value; }
+            set { this.etats = value; }
         }
         public List<Habilete> HabiletesPotentielles
         {
@@ -216,7 +216,7 @@ namespace TravailSession
         public override string ToString()
         {
             string etats = "";
-            foreach (EtatActif E in etat)
+            foreach (EtatActif E in etats)
                 etats += E.ToString() + " ";
             return "Monstre : \n" + "\t Nom : " + this.Nom + "\n"
                                   + "\t Surnom : " + this.Surnom + "\n"
