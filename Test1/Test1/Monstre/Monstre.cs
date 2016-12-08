@@ -19,7 +19,7 @@ namespace TravailSession
     /**
      * Stephane 
      */
-    class Monstre
+    public class Monstre
     {
         private Random generateur  = new Random();
 
@@ -183,7 +183,7 @@ namespace TravailSession
         //Calcul niveau d'experience selon les points d'experience
         public void CalculNiveau()
         {
-
+           
         }
 
         //Ajoute de l'experience et modifie le niveau si necessaire

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravailSession;
+using TravailSession.Exceptions;
+
 
 namespace TravailSession
 {
@@ -10,7 +13,7 @@ namespace TravailSession
     public abstract class Collection
     {
         protected List<Item> items { get; set; }
-        private int taille { get; set; }
+        protected int taille { get; set; }
 
 
         public Collection()
@@ -32,7 +35,7 @@ namespace TravailSession
         }
 
         //Ajoute une item a une collection
-        public Collection Ajouter(Item item, Collection collection) //Passe la collection et l'item en parametre
+        public virtual Collection Ajouter(Item item, Collection collection) //Passe la collection et l'item en parametre
         {
             collection.items.Add(item); //Ajoute l'item a la collection
             collection.taille++;

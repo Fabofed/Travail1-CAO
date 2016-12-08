@@ -12,17 +12,28 @@ namespace TravailSession
 {
     [Serializable]
 
-    public class Item
+    public abstract class Item
     {
         #region propriete
-        public String Nom { get; set; }
+        public abstract void Utiliser(Joueur joueur, Monstre monstre);
+
+        protected String nom { get; set; }
         public String Description { get; set; }
         public int Valeur { get; set; }
         public int DegatsMax { get; set; }
         public int DegatsMin { get; set; }
         public Element Type { get; set; }
-        public List<Effet> etat { get; set; }
+        public List<Effet> effets { get; set; }
         #endregion
+
+        public String Nom
+        {
+            get
+            {
+                return this.nom;
+            }
+        }
+
 
         //Enregistrer un item sur XML
         public static void Enregistrer(Item item, string endroit)
@@ -41,16 +52,14 @@ namespace TravailSession
         }
 
         #region constructeur
-        public Item (string nom, String description, int valeur, int DegatsMax, int DegatsMin, Element type, List<Effet> etat)
+        public Item (string nom, String description, int valeur, Element type, List<Effet> effets)
         {
             this.Nom = Nom;
             this.Description = Description;
             this.Valeur = Valeur;
-            this.DegatsMax = DegatsMax;
-            this.DegatsMin = DegatsMin;
             this.Type = type;
-            this.etat = etat;
-            etat = new List<Effet>();
+            effets = new List<Effet>();
+            this.effets = effets;
         }
         #endregion
     }

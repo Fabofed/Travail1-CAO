@@ -20,9 +20,6 @@ namespace TravailSession
 
         }
 
-        public void Effectuer()
-        {
-
-        }
+        public abstract void Effectuer(Joueur joueur, Monstre monstre);
     }
 }

@@ -8,7 +8,7 @@ using TravailSession;
 
 namespace TravailSession
 {
-    class Joueur
+    public class Joueur
     {
         // Constantes représentant les caractéristiques de départ du joueur.
         private const int NIVEAU_DEPART = 1;
