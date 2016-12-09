@@ -11,7 +11,7 @@ namespace TravailSession
     {
         private Capture capture;
 
-        public Sphere(string nom, String description, int valeur, Element type, List<Effet> effets) : base(nom, description, valeur, type, effets)
+        public Sphere(string nom, String description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
         {
             effets.Add(capture); //Ajoute l'effet capture a la liste des effets
         }

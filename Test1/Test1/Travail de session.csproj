@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\AucuneSauvegardeTrouvee.cs" />
+    <Compile Include="Exceptions\NomNonValide.cs" />
+    <Compile Include="Interfaces\IPersistant.cs" />
+    <Compile Include="Interfaces\IUtilisable.cs" />
+    <Compile Include="Items\ItemDescription.cs" />
     <Compile Include="Monstre\MonstreDescription.cs" />
     <Compile Include="Partie\Aventure.cs" />
     <Compile Include="Monstre\Caracteristiques.cs" />
@@ -80,6 +85,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

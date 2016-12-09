@@ -8,9 +8,12 @@ namespace TravailSession.Exceptions
 {
     class ManqueDargent : Exception
     {
-        public ManqueDargent(string erreur) : base(erreur)
+        public override string Message
         {
-            Console.WriteLine("Vous n'avez pas assez d'argent!");
+            get
+            {
+                return "Vous n'avez pas assez d'argent!";
+            }
         }
     }
 }

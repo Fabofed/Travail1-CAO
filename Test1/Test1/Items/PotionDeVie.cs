@@ -14,7 +14,7 @@ namespace TravailSession.Items
         private Joueur joueur;
         private Monstre monstre;
 
-        public PotionDeVie(string nom, string description, int valeur, Element type, List<Effet> effets) : base(nom, description, valeur, type, effets)
+        public PotionDeVie(string nom, string description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
         {
         }
 
@@ -25,7 +25,7 @@ namespace TravailSession.Items
 
             else
             {
-                monstre.PtsVieActuels += this.Valeur; //Ajoute les vies de la potion au monstre
+                monstre.PtsVieActuels += this.Cout; //Ajoute les vies de la potion au monstre
                 joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire
             }
         }

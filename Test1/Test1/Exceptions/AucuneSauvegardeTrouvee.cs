@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TravailSession.Exceptions
 {
-    class ChoixInvalid : Exception
+    class AucuneSauvegardeTrouvee : Exception
     {
         public override string Message
         {
             get
             {
-                return "Votre choix est invalid, veuillez recommencer.";
+                return "Il n'y a aucune partie sauvegardée ici.";
             }
         }
     }

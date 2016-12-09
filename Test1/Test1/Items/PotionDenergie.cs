@@ -14,7 +14,7 @@ namespace TravailSession.Items
         private Joueur joueur;
         private Monstre monstre;
 
-        public PotionDenergie(string nom, string description, int valeur, Element type, List<Effet> effets) : base(nom, description, valeur, type, effets)
+        public PotionDenergie(string nom, string description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
         {
         }
 

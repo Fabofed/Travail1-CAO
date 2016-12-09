@@ -13,15 +13,16 @@ namespace TravailSession
     [Serializable]
      class Aventure
     {
-        Joueur joueur;
-        Habilete[] listeHabilete;
-        Monstre[] listeMonstre;
+       // Habilete[] listeHabilete;
+        public int IdAventure { get; set; }
+        public string NomAventure { get; set; }
+        public Joueur joueur;
 
-        public Aventure(Joueur joueur)
+        public Aventure(int IdAventure, string NomAventure)
         {
-            this.joueur = joueur;
-            listeHabilete = Habilete.ChargerListeHabilete();
-            listeMonstre = Monstre.ChargerListeMonstre();
+            this.IdAventure = IdAventure;
+            this.NomAventure = NomAventure;
+            joueur = new Joueur();
         }
 
         public void acheterSphere(int argentActuel)
@@ -48,7 +49,6 @@ namespace TravailSession
                 joueur.Argent = joueur.Argent - (200 * potionAdrenaline);
             }
         }
-
         public static void Sauvegarder_Aventure(Aventure aventure)
         {
             BinaryFormatter format = new BinaryFormatter();

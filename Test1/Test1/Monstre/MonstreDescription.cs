@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
+using TravailSession.Interfaces;
+using TravailSession.Items;
 
 namespace TravailSession
 {
     public enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
 
-    public class MonstreDescription
+    public class MonstreDescription : IPersistant
     {
         public string nom { get; set; }
         public TypeMonstre type { get; set; }
@@ -22,6 +24,16 @@ namespace TravailSession
         public override string ToString()
         {
             return "Description du monstre: " + nom;
+        }
+
+        public string SauvegardeXML(MonstreDescription monstre, ItemDescription item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ChargerXML(MonstreDescription monstre, ItemDescription item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

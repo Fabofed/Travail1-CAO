@@ -16,44 +16,20 @@ namespace TravailSession
 
         private string nom { get; set; }
         private int argent { get; set; }
-        private Inventaire inventaire { get; set; }
+        public Inventaire Inventaire { get; set; }
         private List<Monstre> monstresCaptures = new List<Monstre>();
-        private Equipe equipe = new Equipe();
+        public Equipe Equipe = new Equipe();
 
         //  monstresCaptures.Add(new Monstre() {nom="Charmander"..... ETC. });
 
-        public Joueur(string nom, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe equipe)
+
+        public Joueur(string nom, int argent, Inventaire Inventaire, List<Monstre> monstresCaptures, Equipe Equipe)
         {
             this.nom = nom;
             this.argent = ARGENT_DEPART;
-            this.inventaire = inventaire;
+            this.Inventaire = Inventaire;
             this.monstresCaptures = monstresCaptures;
-            this.equipe = equipe;
-        }
-
-        public Joueur()
-        {
-            this.nom = nom;
-            this.argent = ARGENT_DEPART;
-            this.inventaire = inventaire;
-            this.monstresCaptures = monstresCaptures;
-            this.equipe = equipe;
-        }
-
-        public Equipe Equipe
-        {
-            get
-            {
-                return this.equipe;
-            }
-        }
-
-        public Inventaire Inventaire
-        {
-            get
-            {
-                return this.inventaire;
-            }
+            this.Equipe = Equipe;
         }
 
         public List<Monstre> MonstresCaptures
@@ -78,7 +54,7 @@ namespace TravailSession
 
         public override string ToString()
         {
-            return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + equipe;
+            return "Nom: " + nom + "/nArgent: " + argent + "/nInventaire: " + Inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + Equipe;
         }
 
     }

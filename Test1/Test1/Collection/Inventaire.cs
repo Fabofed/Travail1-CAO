@@ -28,7 +28,7 @@ namespace TravailSession
         //Ajoute une item a l'inventaire
         public Inventaire Ajouter(Item item, Inventaire inventaire, Joueur joueur)
         {
-            if (item.Valeur > joueur.Argent) //Si le joueur n'a pas assez d'argent
+            if (item.Cout > joueur.Argent) //Si le joueur n'a pas assez d'argent
             {
                 throw new ManqueDargent("Vous n'avez assez d'argent pour acheter l'item " + item.Nom);
             }

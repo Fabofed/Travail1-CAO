@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravailSession.Interfaces;
 
 namespace TravailSession
 {
@@ -11,7 +12,7 @@ namespace TravailSession
 
     enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
 
-    public class Habilete
+    public class Habilete : IUtilisable
     {
         public string Nom { get; private set; }
         public string Description { get; private set; }
@@ -30,5 +31,9 @@ namespace TravailSession
             //this.Element = element;
         }
 
+        public string Utiliser(Effet unEffet, Monstre cible)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

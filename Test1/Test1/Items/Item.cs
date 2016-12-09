@@ -17,20 +17,9 @@ namespace TravailSession
         #region propriete
         public abstract void Utiliser(Joueur joueur, Monstre monstre);
 
-        protected String nom { get; set; }
-        protected String description { get; set; }
-        protected int valeur { get; set; }
-        protected int degatsMax { get; set; }
-        protected int degatsMin { get; set; }
         protected Element type { get; set; }
         protected List<Effet> effets { get; set; }
         #endregion
-
-        public String Nom
-        { get {return this.nom;} }
-
-        public int Valeur
-        { get { return this.valeur; } }
         
         //Enregistrer un item sur XML
         public static void Enregistrer(Item item, string endroit)
@@ -49,11 +38,8 @@ namespace TravailSession
         }
 
         #region constructeur
-        public Item (string nom, String description, int valeur, Element type, List<Effet> effets)
+        public Item (string nom, String description, int Cout, Element type, List<Effet> effets)
         {
-            this.nom = nom;
-            this.description = description;
-            this.valeur = valeur;
             this.type = type;
             effets = new List<Effet>();
             this.effets = effets;

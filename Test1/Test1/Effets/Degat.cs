@@ -8,5 +8,7 @@ namespace TravailSession
 {
     class Degat : Effet
     {
+        protected int degatsMax { get; set; }
+        protected int degatsMin { get; set; }
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TravailSession.Exceptions
 {
-    class ChoixInvalid : Exception
+    class NomNonValide : Exception
     {
         public override string Message
         {
             get
             {
-                return "Votre choix est invalid, veuillez recommencer.";
+                return "Votre nom de personnage doit contenir seulement des lettres!";
             }
         }
     }
