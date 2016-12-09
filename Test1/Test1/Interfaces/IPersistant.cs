@@ -11,7 +11,7 @@ namespace TravailSession.Interfaces
 {
     interface IPersistant
     {
-        string SauvegardeXML(MonstreDescription monstre, ItemDescription item);
-        string ChargerXML(MonstreDescription monstre, ItemDescription item);
+        string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit);
+        string ChargerXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit);
     }
 }

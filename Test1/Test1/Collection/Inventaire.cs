@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
 using TravailSession.Exceptions;
-
-
-
+using TravailSession.Interfaces;
+using TravailSession.Items;
 
 namespace TravailSession
 {
     [Serializable]
     //Herite de la classe Collection
-    class Inventaire : Collection
+    class Inventaire : Collection, IPersistant
     {
         public Item Details { get; set; }
         public int Quantite { get; set; }
@@ -38,6 +37,16 @@ namespace TravailSession
                 inventaire.taille++;
                 return inventaire;
             }
+        }
+
+        public string SauvegardeXML(MonstreDescription monstre, ItemDescription item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ChargerXML(MonstreDescription monstre, ItemDescription item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

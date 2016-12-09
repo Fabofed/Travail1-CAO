@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using TravailSession;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.Runtime.Serialization;
+using TravailSession.Exceptions;
 
 namespace TravailSession
 {
@@ -51,16 +52,46 @@ namespace TravailSession
         }
         public static void Sauvegarder_Aventure(Aventure aventure)
         {
-            BinaryFormatter format = new BinaryFormatter();
-            using (Stream stream = new FileStream(@".\aventure.ply", FileMode.Create, FileAccess.Write, FileShare.None)) format.Serialize(stream, aventure);
+            List<Object> save = new List<object>();
+            save.Add(joueur.Joueur);
+            save.Add(joueur.MonstresCaptures);
+            save.Add(joueur.Inventaire);
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("sauvegardePartie.bin",
+                                     FileMode.Create,
+                                     FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, save);
+            stream.Close();
+
+            Console.WriteLine("La partie a ete sauvegardee");
         }
 
-        public static Aventure Charger_Aventure()
+        public void ChargerAventure()
         {
-            Aventure aventure;
-            BinaryFormatter format = new BinaryFormatter();
-            using (Stream stream = new FileStream(@".\aventure.ply", FileMode.Open, FileAccess.Read, FileShare.None)) aventure = (Aventure)format.Deserialize(stream);
-            return aventure;
+            if (File.Exists("sauvegardePartie.bin"))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream("sauvegardePartie.bin",
+                    FileMode.Open,
+                    FileAccess.Read,
+                    FileShare.Read);
+                List<Object> save = (List<object>)formatter.Deserialize(stream);
+
+                //Sauvegarde le joueur, les monstreCaptures et l'inventaire du joueur
+                joueur.Joueur = (Joueur)save[0];
+                joueur.MonstresCaptures = (List<Monstre>)save[1];
+                joueur.Inventaire = (Inventaire)save[2];
+                stream.Close();
+
+                //ReloadMagasin();
+
+                Console.WriteLine("La partie a ete chargee");
+            }
+            else
+            {
+                throw new AucuneSauvegardeTrouvee();
+            }
         }
     }
 }

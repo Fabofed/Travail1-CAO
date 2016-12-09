@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\AucuneSauvegardeTrouvee.cs" />
+    <Compile Include="Exceptions\EchecDeLectureEcriture.cs" />
     <Compile Include="Exceptions\NomNonValide.cs" />
     <Compile Include="Interfaces\IPersistant.cs" />
     <Compile Include="Interfaces\IUtilisable.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Partie\Menu.cs" />
     <Compile Include="Monstre\Monstre.cs" />
     <Compile Include="Partie\Partie.cs" />
-    <Compile Include="Joueur\Personnage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Effets\Regeneration.cs" />
     <Compile Include="Items\Sphere.cs" />

@@ -10,5 +10,11 @@ namespace TravailSession
     {
         protected int degatsMax { get; set; }
         protected int degatsMin { get; set; }
+
+        public override void Effectuer(Joueur joueur, Monstre monstre)
+        {
+
+        }
+
     }
 }

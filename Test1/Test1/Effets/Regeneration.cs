@@ -8,5 +8,9 @@ namespace TravailSession
 {
     class Regeneration : Effet
     {
+        public override void Effectuer(Joueur joueur, Monstre monstre)
+        {
+
+        }
     }
 }

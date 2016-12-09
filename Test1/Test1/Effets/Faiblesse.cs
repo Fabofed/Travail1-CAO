@@ -8,5 +8,9 @@ namespace TravailSession
 {
     class Faiblesse : Effet
     {
+        public override void Effectuer(Joueur joueur, Monstre monstre)
+        {
+
+        }
     }
 }
