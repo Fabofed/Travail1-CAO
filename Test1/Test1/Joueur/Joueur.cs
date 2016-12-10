@@ -85,7 +85,7 @@ namespace TravailSession
         public string ChargerXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
             XmlSerializer formatJ = new XmlSerializer(typeof(Item));
-            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (ItemDescription)formatJ.Deserialize(streamJ);
+            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (Joueur)formatJ.Deserialize(streamJ);
 
             XmlSerializer formatID = new XmlSerializer(typeof(Item));
             using (Stream streamID = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) item = (ItemDescription)formatID.Deserialize(streamID);

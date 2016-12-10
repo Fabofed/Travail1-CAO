@@ -11,17 +11,10 @@ namespace TravailSession.Effets
     public class Capture : Effet
     {
         private Joueur joueur;
-        private Monstre monstreACapturer;
 
-        public Capture(Joueur joueur, Monstre monstreACapturer)
+        public override void Effectuer(Effet capture, Monstre monstre)
         {
-            this.joueur = joueur;
-            this.monstreACapturer = monstreACapturer;
-        }
-
-        public override void Effectuer(Joueur joueur, Monstre monstre)
-        {
-            joueur.MonstresCaptures.Add(monstreACapturer); //Ajoute le monstre a la liste de monstres captures
+            this.joueur.MonstresCaptures.Add(monstre); //Ajoute le monstre a la liste de monstres captures
         }
     }
 }

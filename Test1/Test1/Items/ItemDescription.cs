@@ -9,24 +9,104 @@ using TravailSession.Interfaces;
 
 namespace TravailSession.Items
 {
-    public class ItemDescription : IUtilisable, IPersistant
+    //Il reste a implementer Utiliser() - Dave
+
+    [Serializable]
+    public abstract class ItemDescription : IUtilisable, IPersistant
     {
-        private string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
-        private string confirmationChargement = "Vous avez bien sauvegardee vos items.";
-        
+        static string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
+        static string confirmationChargement = "Vous avez bien sauvegardee vos items.";
+
+        public int Id { get; set; }
+
         public string Nom { get; set; }
+
         public string Description { get; set; }
+
         public int Cout { get; set; }
+        
+
+        public bool UtilisableFeu { get; set; }
+
+        public bool UtilisableMagma { get; set; }
+
+        public bool UtilisableTerre { get; set; }
+
+        public bool UtilisableVegetation { get; set; }
+
+        public bool UtilisableEau { get; set; }
+
+        public bool UtilisableGlace { get; set; }
+
+        public bool UtilisableAir { get; set; }
+
+        public bool UtilisableElectricite { get; set; }
+
+
+        public Element Type { get; set; }
+
+        public List<Effet> Effets { get; set; }
+
+        //Determine quel type de monstre peut utiliser l'item
+        protected void DeterminerUtilisable(Element.Elements Type)
+        {
+            UtilisableFeu = false;
+            UtilisableMagma = false;
+            UtilisableTerre = false;
+            UtilisableVegetation = false;
+            UtilisableEau = false;
+            UtilisableGlace = false;
+            UtilisableAir = false;
+            UtilisableElectricite = false;
+
+            switch (Type)
+            {
+                case Element.Elements.Air:
+                    UtilisableAir = true;
+                    break;
+
+                case Element.Elements.Eau:
+                    UtilisableEau = true;
+                    break;
+
+                case Element.Elements.Electricite:
+                    UtilisableElectricite = true;
+                    break;
+
+                case Element.Elements.Feu:
+                    UtilisableFeu = true;
+                    break;
+
+                case Element.Elements.Glace:
+                    UtilisableGlace = true;
+                    break;
+
+                case Element.Elements.Magma:
+                    UtilisableMagma = true;
+                    break;
+
+                case Element.Elements.Vegetation:
+                    UtilisableVegetation = true;
+                    break;
+
+                case Element.Elements.Terre:
+                    UtilisableTerre = true;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
 
         public override string ToString()
         {
-            return "Nom: " + Nom + "Description: " + Description + "Cout: " + Cout;
+            return "ID: " + Id + "/nNom: " + Nom + "/nDescription: " + Description + "/nCout: " + Cout + "/nType: " + Type + "/nListe d'effets: " + Effets;
         }
 
-        public string Utiliser(Effet unEffet, Monstre cible)
-        {
-            throw new NotImplementedException();
-        }
+
+        public abstract string Utiliser(Effet unEffet, Monstre cible, Monstre depart, Joueur joueur);
+
 
         public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
@@ -43,10 +123,11 @@ namespace TravailSession.Items
             return confirmationSauvegarde;
         }
 
+
         public string ChargerXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
             XmlSerializer formatJ = new XmlSerializer(typeof(Item));
-            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (ItemDescription)formatJ.Deserialize(streamJ);
+            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (Joueur)formatJ.Deserialize(streamJ);
 
             XmlSerializer formatID = new XmlSerializer(typeof(Item));
             using (Stream streamID = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) item = (ItemDescription)formatID.Deserialize(streamID);

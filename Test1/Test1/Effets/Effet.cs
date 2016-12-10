@@ -10,16 +10,11 @@ namespace TravailSession
 {
     public abstract class Effet
     {
-        private Monstre cible { get; set; }
-        private Monstre depart { get; set; }
-        private int magnitude { get; set; }
-        private int duree { get; set; }
+        public Monstre Cible { get; set; }
+        public Monstre Depart { get; set; }
+        public int Magnitude { get; set; }
+        public int Duree { get; set; }
 
-        public Effet()
-        {
-
-        }
-
-        public abstract void Effectuer(Joueur joueur, Monstre monstre);
+        public abstract void Effectuer(Effet effet, Monstre monstre);
     }
 }

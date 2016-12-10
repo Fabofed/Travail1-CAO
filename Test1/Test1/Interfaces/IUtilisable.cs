@@ -9,6 +9,6 @@ namespace TravailSession.Interfaces
 {
     interface IUtilisable
     {
-        string Utiliser(Effet unEffet, Monstre cible);
+        string Utiliser(Effet unEffet, Monstre cible, Monstre depart);
     }
 }

@@ -15,8 +15,8 @@ namespace TravailSession
 
     public class MonstreDescription : IPersistant
     {
-        private string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
-        private string confirmationChargement = "Vous avez bien sauvegardee vos items.";
+        static string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
+        static string confirmationChargement = "Vous avez bien sauvegardee vos items.";
 
         public string nom { get; set; }
         public TypeMonstre type { get; set; }

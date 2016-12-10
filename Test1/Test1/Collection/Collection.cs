@@ -35,23 +35,21 @@ namespace TravailSession
         }
 
         //Ajoute une item a une collection
-        public virtual Collection Ajouter(Item item, Collection collection) //Passe la collection et l'item en parametre
+        public virtual void Ajouter(Item item) //Passe la collection et l'item en parametre
         {
-            collection.items.Add(item); //Ajoute l'item a la collection
-            collection.taille++;
-            return collection;
+            items.Add(item); //Ajoute l'item a la collection
+            taille++;
         }
 
-        public Collection Supprimer(Item item, Collection collection) //Passe la collection et l'item en parametre
+        public void Supprimer(Item item)
         {
-            for (int i = 0; i<collection.taille; i++)
+            for (int i = 0; i<taille; i++)
             {
-                if (collection.Items.Contains(item)) //Si il est dans la collection
-                    collection.items.Remove(item); //Enleve l'item de la collection
+                if (Items.Contains(item)) //Si il est dans la collection
+                    items.Remove(item); //Enleve l'item de la collection
                 else
                     Console.WriteLine("L'item n'est pas dans la collection /n");
             }
-            return collection;
         }
 
 

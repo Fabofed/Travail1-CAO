@@ -18,7 +18,7 @@ namespace TravailSession
 
         public enum Elements
         {
-            Fire, Magma, Earth, Vegetation, Water, Ice, Air, Electricity
+            Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite
         }
     }
 }

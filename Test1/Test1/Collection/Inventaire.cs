@@ -29,7 +29,7 @@ namespace TravailSession
         {
             if (item.Cout > joueur.Argent) //Si le joueur n'a pas assez d'argent
             {
-                throw new ManqueDargent("Vous n'avez assez d'argent pour acheter l'item " + item.Nom);
+                throw new ManqueDargent();
             }
             else
             {
@@ -39,12 +39,13 @@ namespace TravailSession
             }
         }
 
-        public string SauvegardeXML(MonstreDescription monstre, ItemDescription item)
+        public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
             throw new NotImplementedException();
+
         }
 
-        public string ChargerXML(MonstreDescription monstre, ItemDescription item)
+        public string ChargerXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
             throw new NotImplementedException();
         }

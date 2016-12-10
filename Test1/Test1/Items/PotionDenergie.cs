@@ -18,6 +18,24 @@ namespace TravailSession.Items
         {
         }
 
+        public override string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
+        {
+            string resultat = "";
+            bool utilisable = DeterminerUtilisable(depart.Type);
+
+            if (utilisable == true)
+            {
+                resultat = "Vous consommez la potion.";
+            }
+
+            else
+            {
+                resultat = "Vous n'etes pas du bon type pour utiliser cette item.";
+            }
+
+            return resultat;
+        }
+
         public override void Utiliser(Joueur joueur, Monstre monstre)
         {
             //Inserer un traitement ici

@@ -14,6 +14,24 @@ namespace TravailSession
 
     public class Habilete : IUtilisable
     {
+
+        public bool UtilisableFeu { get; set; }
+
+        public bool UtilisableMagma { get; set; }
+
+        public bool UtilisableTerre { get; set; }
+
+        public bool UtilisableVegetation { get; set; }
+
+        public bool UtilisableEau { get; set; }
+
+        public bool UtilisableGlace { get; set; }
+
+        public bool UtilisableAir { get; set; }
+
+        public bool UtilisableElectricite { get; set; }
+
+
         public string Nom { get; private set; }
         public string Description { get; private set; }
         public int Gain { get; private set; }
@@ -31,7 +49,58 @@ namespace TravailSession
             //this.Element = element;
         }
 
-        public string Utiliser(Effet unEffet, Monstre cible)
+        //Determine quel type de monstre peut utiliser l'item
+        private void DeterminerUtilisable(Element.Elements Type)
+        {
+            UtilisableFeu = false;
+            UtilisableMagma = false;
+            UtilisableTerre = false;
+            UtilisableVegetation = false;
+            UtilisableEau = false;
+            UtilisableGlace = false;
+            UtilisableAir = false;
+            UtilisableElectricite = false;
+
+            switch (Type)
+            {
+                case Element.Elements.Air:
+                    UtilisableAir = true;
+                    break;
+
+                case Element.Elements.Eau:
+                    UtilisableEau = true;
+                    break;
+
+                case Element.Elements.Electricite:
+                    UtilisableElectricite = true;
+                    break;
+
+                case Element.Elements.Feu:
+                    UtilisableFeu = true;
+                    break;
+
+                case Element.Elements.Glace:
+                    UtilisableGlace = true;
+                    break;
+
+                case Element.Elements.Magma:
+                    UtilisableMagma = true;
+                    break;
+
+                case Element.Elements.Vegetation:
+                    UtilisableVegetation = true;
+                    break;
+
+                case Element.Elements.Terre:
+                    UtilisableTerre = true;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        public string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
         {
             throw new NotImplementedException();
         }

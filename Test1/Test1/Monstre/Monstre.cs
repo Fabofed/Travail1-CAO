@@ -19,7 +19,7 @@ namespace TravailSession
     /**
      * Stephane 
      */
-    public class Monstre
+    public class Monstre : MonstreDescription
     {
         private Random generateur  = new Random();
 
