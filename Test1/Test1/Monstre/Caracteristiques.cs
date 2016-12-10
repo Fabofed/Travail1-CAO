@@ -28,7 +28,9 @@ namespace TravailSession
             this.PtsVieTotal = ptsVieBase;
             this.PtsEnergieBase = ptsEnergieBase;
             this.ptsEnergieActuels = ptsEnergieBase;
-            this.ptsEnergieTotal = ptsEnergieBase; 
+            this.ptsEnergieTotal = ptsEnergieBase;
+            this.Attaque = Attaque;
+            this.Defense = Defense;
         }
 
         #endregion
@@ -80,13 +82,13 @@ namespace TravailSession
         }
 
 
-        public int Attaque
+        public float Attaque
         {
             get;
             set; // On laisse la place à un eventuelle évolution du monstre
         }
 
-        public int Defense
+        public float Defense
         {
             get;
             set;

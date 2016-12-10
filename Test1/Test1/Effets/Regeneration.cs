@@ -8,9 +8,11 @@ namespace TravailSession
 {
     class Regeneration : Effet
     {
-        public override void Effectuer(Joueur joueur, Monstre monstre)
-        {
+        private Monstre monstre;
 
+        public override void Effectuer(Effet effet, Monstre monstre)
+        {
+            this.monstre.CaracteristiquesMonstre.PtsEnergieActuels = this.monstre.CaracteristiquesMonstre.PtsEnergieActuels * 1.25; //Regenere 1/4 de lenergie du monstre
         }
     }
 }

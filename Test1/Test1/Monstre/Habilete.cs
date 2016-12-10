@@ -8,9 +8,9 @@ using TravailSession.Interfaces;
 namespace TravailSession
 {
   
-    enum CibleHabilete { Soi, Ennemi}
+    public enum CibleHabilete { Soi, Ennemi}
 
-    enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
+    public enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
 
     public class Habilete : IUtilisable
     {
@@ -36,16 +36,19 @@ namespace TravailSession
         public string Description { get; private set; }
         public int Gain { get; private set; }
         public int Puissance { get; private set; }
+        private EffetHabilete effet { get; set; }
+
 
         // public TypeElement element { get; private set; }
 
 
-        public Habilete(string nom, string description, int gain, int puissance /*TypeElement element = TypeElement.PretaAttaquer*/)
+        public Habilete(string nom, string description, int gain, int puissance, EffetHabilete effet /*TypeElement element = TypeElement.PretaAttaquer*/)
         {
             this.Nom = nom;
             this.Description = description;
             this.Gain = gain;
             this.Puissance = puissance;
+            this.effet = effet;
             //this.Element = element;
         }
 

@@ -8,9 +8,11 @@ namespace TravailSession
 {
     class Faiblesse : Effet
     {
-        public override void Effectuer(Joueur joueur, Monstre monstre)
-        {
+        private Monstre monstre;
 
+        public override void Effectuer(Effet effet, Monstre monstre)
+        {
+            this.monstre.CaracteristiquesMonstre.Defense = 0.75 ; //Reduit la defense du monstre
         }
     }
 }
