@@ -7,15 +7,32 @@ using TravailSession;
 
 namespace TravailSession.Items
 {
-    class PotionDenergie : Item
+    class PotionDeForce : Item
     {
-        private Collection collection;
+        private ItemCollection collection;
         private Item item;
         private Joueur joueur;
         private Monstre monstre;
+        private Force force;
 
-        public PotionDenergie(string nom, string description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
+
+        public override string Utiliser
         {
+            get
+            {
+                // Inserer un traitement ici
+                joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire            }
+            }
+        }
+
+        public PotionDeForce(int Id, string nom, string description, int Cout, int Quantite) : base()
+        {
+            this.Id = Id;
+            this.Nom = nom;
+            this.Description = description;
+            this.Cout = Cout;
+            this.Quantite = Quantite;
+            Effets.Add(force);
         }
 
         public override string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
@@ -34,12 +51,6 @@ namespace TravailSession.Items
             }
 
             return resultat;
-        }
-
-        public override void Utiliser(Joueur joueur, Monstre monstre)
-        {
-            //Inserer un traitement ici
-            joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire
         }
     }
 }

@@ -15,10 +15,12 @@ namespace TravailSession
 
     public abstract class Item : ItemDescription
     {
-        #region propriete
-       
         public int Quantite { get; set; }
 
-        #endregion
+        public override string ToString()
+        {
+            return "ID: " + Id + "/nNom: " + Nom + "/nDescription: " + Description + "/nCout: " + Cout + "/nType: " + Type + "/nQuantite: " + Quantite + "/nListe d'effets: " + Effets;
+        }
+
     }
 }

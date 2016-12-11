@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravailSession;
 using TravailSession.Effets;
 
 namespace TravailSession
@@ -11,9 +12,14 @@ namespace TravailSession
     {
         private Capture capture;
 
-        public Sphere(string nom, String description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
+        public Sphere(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
-            effets.Add(capture); //Ajoute l'effet capture a la liste des effets
+            this.Id = Id;
+            this.Nom = nom;
+            this.Description = description;
+            this.Cout = Cout;
+            this.Quantite = Quantite;
+            Effets.Add(capture);
         }
 
         //Ajoute un monstre au monstresCaptures

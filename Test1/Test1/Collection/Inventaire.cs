@@ -10,10 +10,15 @@ using TravailSession.Items;
 
 namespace TravailSession
 {
+    //Cette classe n'est pas terminer - Dave
+    //Il reste a implementer la serialization.
+
     [Serializable]
-    //Herite de la classe Collection
-    class Inventaire : Collection, IPersistant
+    //Herite de la classe abstraite generique Collection. Represente l'invetaire du joueur
+    class Inventaire : ItemCollection<Item>, IPersistant
     {
+        private Joueur joueur;
+
         public Item Details { get; set; }
         public int Quantite { get; set; }
 
@@ -23,21 +28,17 @@ namespace TravailSession
             Quantite = quantite;
         }
 
-
-        //Ajoute une item a l'inventaire
-        public Inventaire Ajouter(Item item, Inventaire inventaire, Joueur joueur)
+        public override void Ajouter(Item item)
         {
-            if (item.Cout > joueur.Argent) //Si le joueur n'a pas assez d'argent
+            if (item.Cout > this.joueur.Argent) //Si le joueur n'a pas assez d'argent
             {
                 throw new ManqueDargent();
             }
             else
             {
-                inventaire.items.Add(item); //Ajoute l'item a la collection
-                inventaire.taille++;
-                return inventaire;
+                this.joueur.Inventaire.items.Add(item); //Ajoute l'item a la collection
             }
-        }
+        }    
 
         public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {

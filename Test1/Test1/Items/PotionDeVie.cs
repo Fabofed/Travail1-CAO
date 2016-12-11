@@ -10,9 +10,16 @@ namespace TravailSession.Items
     class PotionDeVie : Item
     {
         private Item potionDeVie;
+        private Guerison guerison;
 
-        public PotionDeVie(string nom, string description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
+        public PotionDeVie(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
+            this.Id = Id;
+            this.Nom = nom;
+            this.Description = description;
+            this.Cout = Cout;
+            this.Quantite = Quantite;
+            Effets.Add(guerison);
         }
 
         public override string Utiliser(Effet guerir, Monstre cible, Monstre depart, Joueur joueur)

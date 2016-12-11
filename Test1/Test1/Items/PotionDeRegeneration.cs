@@ -7,15 +7,23 @@ using TravailSession;
 
 namespace TravailSession.Items
 {
-    class PotionDadrenaline : Item
+    class PotionDeRegeneration : Item
     {
         private Collection collection;
         private Item item;
         private Joueur joueur;
         private Monstre monstre;
+        private Regeneration regeneration;
 
-        public PotionDadrenaline(string nom, string description, int Cout, Element type, List<Effet> effets) : base(nom, description, Cout, type, effets)
+
+        public PotionDeRegeneration(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
+            this.Id = Id;
+            this.Nom = nom;
+            this.Description = description;
+            this.Cout = Cout;
+            this.Quantite = Quantite;
+            Effets.Add(regeneration);
         }
 
         public override string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
@@ -38,7 +46,7 @@ namespace TravailSession.Items
 
         public override void Utiliser(Joueur joueur, Monstre monstre)
         {
-            // Inserer un traitement ici
+            //Inserer un traitement ici
             joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire
         }
     }
