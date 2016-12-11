@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using TravailSession;
 
+
 namespace TravailSession.Interfaces
 {
-    interface IUtilisable
+    public interface IUtilisable
     {
-        string Utiliser(Effet unEffet, Monstre cible, Monstre depart);
+         //string Utiliser(Effet unEffet, Monstre cible, Monstre depart);
+       string Utiliser { get; }
     }
 }

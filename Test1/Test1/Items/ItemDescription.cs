@@ -105,7 +105,7 @@ namespace TravailSession.Items
         }
 
 
-        public abstract string Utiliser(Effet unEffet, Monstre cible, Monstre depart, Joueur joueur);
+        public abstract string Utiliser { get; } // (Effet unEffet, Monstre cible, Monstre depart, Joueur joueur)
 
 
         public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
@@ -137,6 +137,8 @@ namespace TravailSession.Items
 
             return confirmationChargement;
         }
+
+       
     }
 }
 
