@@ -7,14 +7,14 @@ using TravailSession;
 
 namespace TravailSession.Items
 {
+    //Cette classe est terminer - Dave
+
     class PotionDeRegeneration : Item
     {
-        private Collection collection;
-        private Item item;
-        private Joueur joueur;
-        private Monstre monstre;
+        private PotionDeRegeneration potionDeRegeneration;
         private Regeneration regeneration;
-
+        private Joueur joueur;
+        private Monstre cible;
 
         public PotionDeRegeneration(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
@@ -26,28 +26,54 @@ namespace TravailSession.Items
             Effets.Add(regeneration);
         }
 
-        public override string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
+        public override int Cout
         {
-            string resultat = "";
-            bool utilisable = DeterminerUtilisable(depart.Type);
-
-            if (utilisable == true)
-            {
-                resultat = "Vous consommez la potion.";
-            }
-
-            else
-            {
-                resultat = "Vous n'etes pas du bon type pour utiliser cette item.";
-            }
-
-            return resultat;
+            get { return Cout; }
+            set { this.Cout = value; }
         }
 
-        public override void Utiliser(Joueur joueur, Monstre monstre)
+        public override string Description
         {
-            //Inserer un traitement ici
-            joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire
+            get { return Description; }
+            set { this.Description = value; }
+        }
+
+        public override List<Effet> Effets
+        {
+            get { return Effets; }
+            set { this.Effets = value; }
+        }
+
+        public override int Id
+        {
+            get { return Id; }
+            set { this.Id = value; }
+        }
+
+        public override string Nom
+        {
+            get { return Nom; }
+            set { this.Nom = value; }
+        }
+
+        public override int Quantite
+        {
+            get { return Quantite; }
+            set { this.Quantite = value; }
+        }
+
+        public override void Utiliser()
+        {
+            if (this.joueur.Inventaire.Contains(this.potionDeRegeneration)) //Si la potion est dans l'inventaire
+            {
+                regeneration.Effectuer(regeneration, this.cible); //Gueri la cible
+                joueur.Inventaire.Supprimer(this.potionDeRegeneration); //Enleve l'item de l'inventaire
+                Console.WriteLine("Vous consommez votre potion. /nVous avez regenere " + regeneration.Magnitude + " points d'energie.");
+            }
+            else
+            {
+                Console.WriteLine("Vous n'avez pas de potion de regeneration.");
+            }
         }
     }
 }

@@ -10,11 +10,13 @@ namespace TravailSession
 {
     public abstract class Effet
     {
-        public Monstre Cible { get; set; }
-        public Monstre Depart { get; set; }
-        public int Magnitude { get; set; }
-        public int Duree { get; set; }
+        //Cette classe est terminer - Dave
 
-        public abstract void Effectuer(Effet effet, Monstre monstre);
+        public abstract Monstre Cible { get; set; }
+        public Monstre Depart { get; set; }
+        public abstract int Magnitude { get; set; }
+        public abstract int Duree { get; set; }
+
+        public abstract void Effectuer(Monstre monstre);
     }
 }

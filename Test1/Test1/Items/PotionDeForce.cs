@@ -7,23 +7,14 @@ using TravailSession;
 
 namespace TravailSession.Items
 {
+    //Cette classe est terminer - Dave
+
     class PotionDeForce : Item
     {
-        private ItemCollection collection;
-        private Item item;
-        private Joueur joueur;
-        private Monstre monstre;
+        private PotionDeVie potionDeForce;
         private Force force;
-
-
-        public override string Utiliser
-        {
-            get
-            {
-                // Inserer un traitement ici
-                joueur.Inventaire.Supprimer(this.item, this.collection); //Enleve l'item de l'inventaire            }
-            }
-        }
+        private Joueur joueur;
+        private Monstre cible;
 
         public PotionDeForce(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
@@ -34,23 +25,54 @@ namespace TravailSession.Items
             this.Quantite = Quantite;
             Effets.Add(force);
         }
-
-        public override string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
+        public override int Cout
         {
-            string resultat = "";
-            bool utilisable = DeterminerUtilisable(depart.Type);
+            get { return Cout; }
+            set { this.Cout = value; }
+        }
 
-            if (utilisable == true)
+        public override string Description
+        {
+            get { return Description; }
+            set { this.Description = value; }
+        }
+
+        public override List<Effet> Effets
+        {
+            get { return Effets; }
+            set { this.Effets = value; }
+        }
+
+        public override int Id
+        {
+            get { return Id; }
+            set { this.Id = value; }
+        }
+
+        public override string Nom
+        {
+            get { return Nom; }
+            set { this.Nom = value; }
+        }
+
+        public override int Quantite
+        {
+            get { return Quantite; }
+            set { this.Quantite = value; }
+        }
+
+        public override void Utiliser()
+        {
+            if (this.joueur.Inventaire.Contains(this.potionDeForce)) //Si la potion est dans l'inventaire
             {
-                resultat = "Vous consommez la potion.";
+                force.Effectuer(this.cible); //Ajoute la force a la cible
+                joueur.Inventaire.Supprimer(this.potionDeForce); //Enleve l'item de l'inventaire
+                Console.WriteLine("Vous consommez votre potion. /nVous reprenez " + force.Magnitude + " points de force.");
             }
-
             else
             {
-                resultat = "Vous n'etes pas du bon type pour utiliser cette item.";
+                Console.WriteLine("Vous n'avez pas de potion de force.");
             }
-
-            return resultat;
         }
     }
 }

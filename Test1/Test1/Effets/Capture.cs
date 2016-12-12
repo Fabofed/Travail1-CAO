@@ -12,7 +12,25 @@ namespace TravailSession.Effets
     {
         private Joueur joueur;
 
-        public override void Effectuer(Effet capture, Monstre monstre)
+        public override Monstre Cible
+        {
+            get { return Cible; }
+            set { this.Cible = value; }
+        }
+
+        public override int Duree
+        {
+            get { return Duree; }
+            set { this.Duree = value; }
+        }
+
+        public override int Magnitude
+        {
+            get { return Magnitude; }
+            set { this.Magnitude = value; }
+        }
+
+        public override void Effectuer(Monstre monstre)
         {
             this.joueur.MonstresCaptures.Add(monstre); //Ajoute le monstre a la liste de monstres captures
         }

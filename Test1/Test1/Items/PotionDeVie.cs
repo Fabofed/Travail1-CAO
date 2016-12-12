@@ -7,10 +7,14 @@ using TravailSession;
 
 namespace TravailSession.Items
 {
+    //Cette classe est terminer - Dave
+
     class PotionDeVie : Item
     {
-        private Item potionDeVie;
+        private PotionDeVie potionDeVie;
         private Guerison guerison;
+        private Joueur joueur;
+        private Monstre cible;
 
         public PotionDeVie(int Id, string nom, string description, int Cout, int Quantite) : base()
         {
@@ -21,36 +25,55 @@ namespace TravailSession.Items
             this.Quantite = Quantite;
             Effets.Add(guerison);
         }
-
-        public override string Utiliser(Effet guerir, Monstre cible, Monstre depart, Joueur joueur)
+        public override int Cout
         {
-            string resultat = "";
+            get { return Cout; }
+            set { this.Cout = value; }
+        }
 
-            bool utilisable = DeterminerUtilisable(depart.Type);
+        public override string Description
+        {
+            get { return Description; }
+            set { this.Description = value; }
+        }
 
-            if (utilisable == true)
+        public override List<Effet> Effets
+        {
+            get { return Effets; }
+            set { this.Effets = value; }
+        }
+
+        public override int Id
+        {
+            get { return Id; }
+            set { this.Id = value; }
+        }
+
+        public override string Nom
+        {
+            get { return Nom; }
+            set { this.Nom = value; }
+        }
+
+        public override int Quantite
+        {
+            get { return Quantite; }
+            set { this.Quantite = value; }
+        }
+
+        public override void Utiliser()
+        {
+            if (this.joueur.Inventaire.Contains(this.potionDeVie)) //Si la potion est dans l'inventaire
             {
-
-                if (joueur.Inventaire.Items.Contains(this.potionDeVie)) //Si la potion est dans l'inventaire
-                {
-                    guerir.Effectuer(guerir, cible); //Gueri la cible
-                    joueur.Inventaire.Supprimer(this.potionDeVie); //Enleve l'item de l'inventaire
-                    resultat = "Vous avez ete gueri de " + guerir.Magnitude + " points.";
-                    return resultat;
-                }
-
-                else
-                {
-                    resultat = "Vous n'avez pas de potion de vie.";
-                    return resultat;
-                }
+                guerison.Effectuer(guerison, this.cible); //Gueri la cible
+                joueur.Inventaire.Supprimer(this.potionDeVie); //Enleve l'item de l'inventaire
+                Console.WriteLine("Vous consommez votre potion. /nVous avez ete gueri de " + guerison.Magnitude + " points.");
             }
-
             else
             {
-                resultat = "Votre type ne vous permet pas d'utilise cette potion de vie.";
-                return resultat;
+                Console.WriteLine("Vous n'avez pas de potion de vie.");
             }
         }
     }
 }
+
