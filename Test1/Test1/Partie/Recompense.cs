@@ -7,13 +7,13 @@ using System.IO;
 using TravailSession;
 namespace TravailSession
 {
-    class Recompense
+    //Cette classe est terminer - Dave
+
+    public class Recompense
     {
-        private DifficulteCombat difficulte { get; set; }
-        private int recompensePts { get; set; }
-        private int recompenseArgent { get; set; }
-        private Equipe equipeEnnemi;
-        private Joueur leJoueur;
+        public DifficulteCombat Difficulte { get; set; }
+        public int RecompensePts { get; set; }
+        public int RecompenseArgent { get; set; }
 
         public enum DifficulteCombat
         {
@@ -23,38 +23,10 @@ namespace TravailSession
 
         public Recompense(DifficulteCombat difficulte, int recompensePts, int recompenseArgent)
         {
-            this.difficulte = difficulte;
-            this.recompensePts = recompensePts;
-            this.recompenseArgent = recompenseArgent;
+            this.Difficulte = difficulte;
+            this.RecompensePts = recompensePts;
+            this.RecompenseArgent = recompenseArgent;
         }
-
-
-        public Equipe EquipeJoueur
-        {
-            get
-            {
-                return this.leJoueur.Equipe;
-            }
-        }
-
-
-        public Equipe EquipeEnnemi
-        {
-            get
-            {
-                return this.equipeEnnemi;
-            }
-        }
-
-
-        public DifficulteCombat LaDifficulte
-        {
-            get
-            {
-                return this.difficulte;
-            }
-        }
-
 
         //Methode qui recoit une difficulte et genere une recompense avec les recompenses correspondantes
         public Recompense GenererEquipe(Recompense.DifficulteCombat difficulte)
@@ -64,28 +36,28 @@ namespace TravailSession
             switch (difficulte)
             {
                 case 0:
-                    recompenseDuMatch.recompenseArgent = 1000;
-                    recompenseDuMatch.recompensePts = 1000;
+                    recompenseDuMatch.RecompenseArgent = 50;
+                    recompenseDuMatch.RecompensePts = 500;
                     break;
 
                 case (DifficulteCombat)1:
-                    recompenseDuMatch.recompenseArgent = 2000;
-                    recompenseDuMatch.recompensePts = 2000;
+                    recompenseDuMatch.RecompenseArgent = 100;
+                    recompenseDuMatch.RecompensePts = 1000;
                     break;
 
                 case (DifficulteCombat)2:
-                    recompenseDuMatch.recompenseArgent = 3000;
-                    recompenseDuMatch.recompensePts = 3000;
+                    recompenseDuMatch.RecompenseArgent = 200;
+                    recompenseDuMatch.RecompensePts = 2000;
                     break;
 
                 case (DifficulteCombat)3:
-                    recompenseDuMatch.recompenseArgent = 4000;
-                    recompenseDuMatch.recompensePts = 4000;
+                    recompenseDuMatch.RecompenseArgent = 500;
+                    recompenseDuMatch.RecompensePts = 4000;
                     break;
 
                 case (DifficulteCombat)4:
-                    recompenseDuMatch.recompenseArgent = 5000;
-                    recompenseDuMatch.recompensePts = 5000;
+                    recompenseDuMatch.RecompenseArgent = 1000;
+                    recompenseDuMatch.RecompensePts = 7000;
                     break;
             }
 

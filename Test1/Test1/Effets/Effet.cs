@@ -8,10 +8,10 @@ using TravailSession;
 
 namespace TravailSession
 {
+    //Cette classe est terminer - Dave
+
     public abstract class Effet
     {
-        //Cette classe est terminer - Dave
-
         public abstract Monstre Cible { get; set; }
         public abstract int Magnitude { get; set; }
         public abstract int Duree { get; set; }

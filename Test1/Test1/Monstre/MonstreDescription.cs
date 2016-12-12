@@ -45,6 +45,21 @@ namespace TravailSession
 
         public int Rarete { get; set; } // plus bas = plus rare (1 a 100)
 
+        public MonstreDescription()
+        {
+            this.Id = Id;
+            this.Nom = Nom;
+            this.Description = Description;
+            this.PtsVieBase = PtsVieBase;
+            this.PtsVieMax = PtsVieMax;
+            this.PtsEnergieBase = PtsEnergieBase;
+            this.PtsEnergieMax = PtsEnergieMax;
+            this.habiletesPotentielles = habiletesPotentielles;
+            this.TypeDelement = TypeDelement;
+            this.NiveauDeBase = 1;
+            this.Rarete = Rarete;
+        }
+
         public MonstreDescription(int Id, string Nom, string Description, int PtsVieBase, int PtsVieMax, int PtsEnergieBase, 
             int PtsEnergieMax, List<Habilete> habiletesPotentielles, TypeMonstre TypeDelement, int Rarete)
         {

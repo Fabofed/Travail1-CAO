@@ -9,8 +9,7 @@ using TravailSession.Items;
 
 namespace TravailSession
 {
-    //Cette classe n'est pas terminer - Dave
-    //Il reste a modifier le cout pour le mettre realiste.
+    //Cette classe est terminer - Dave
 
     //Herite de la classe abstraite generique Collection. Represente le magasin auquel le joueur a acces.
     public class Magasin : ItemCollection<Item>
@@ -40,10 +39,10 @@ namespace TravailSession
         //On doit generer le magasin a chaque ouverture du magasin
         public void GenererMagasin()
         {
-            ItemsMagasin.Ajouter(new Sphere(0, "Pokeball", "Cette boule vous permez de capturer des monstres!", 50, 3)); 
-            ItemsMagasin.Ajouter(new PotionDeVie(1, "Potion de vie", "Cette potion vous donne un regain de vie, vous etes maintenant moins pres de la mort!", 20, 3));
-            ItemsMagasin.Ajouter(new PotionDeRegeneration(2, "Potion de regeneration", "Cette potion vous donne un regain de vie sur plusieurs tours, soyez patient!", 15, 3));
-            ItemsMagasin.Ajouter(new PotionDeForce(3, "Potion de force", "Cette potion vous donne un regain de force, vous etes maintenant plus fort que jamais!", 25, 3));
+            ItemsMagasin.Ajouter(new Sphere(0, "Pokeball", "Cette boule vous permez de capturer des monstres!", 2000, 3)); 
+            ItemsMagasin.Ajouter(new PotionDeVie(1, "Potion de vie", "Cette potion vous donne un regain de vie, vous etes maintenant moins pres de la mort!", 50, 3));
+            ItemsMagasin.Ajouter(new PotionDeRegeneration(2, "Potion de regeneration", "Cette potion vous donne un regain de vie sur plusieurs tours, soyez patient!", 100, 3));
+            ItemsMagasin.Ajouter(new PotionDeForce(3, "Potion de force", "Cette potion vous donne un regain de force, vous etes maintenant plus fort que jamais!", 150, 3));
         }
     }
 }

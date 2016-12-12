@@ -9,7 +9,8 @@ using System.Xml.Serialization;
 
 
 namespace TravailSession
-{    //Cette classe n'est pas terminer - Dave
+{    
+    //Cette classe n'est pas terminer - Dave
     //Il reste a implementer la serialization en fichier binaire
 
     [Serializable]
@@ -19,6 +20,18 @@ namespace TravailSession
     public class Monstre : MonstreDescription
     {
         private Random generateur = new Random();
+        private const int ARGENT_DEPART = 1000;
+
+        private const int NIVEAU1 = 1000;
+        private const int NIVEAU2 = 2500;
+        private const int NIVEAU3 = 5000;
+        private const int NIVEAU4 = 8000;
+        private const int NIVEAU5 = 12000;
+        private const int NIVEAU6 = 16500;
+        private const int NIVEAU7 = 22000;
+        private const int NIVEAU8 = 28000;
+        private const int NIVEAU9 = 36000;
+        private const int NIVEAU10 = 46000;
 
         public string Surnom { get; set; }
 
@@ -38,8 +51,43 @@ namespace TravailSession
         public float Defense { get; set; }
 
         #region Constructeurs
+
+         /*
+         * Constructeur vide
+         */
+        public Monstre() : base()
+        {
+            this.Surnom = Surnom;
+            this.NiveauExperience = 1;
+            this.PointsExperience = 0;
+            this.ptsVieActuels = PtsVieBase;
+            this.ptsEnergieActuels = PtsEnergieBase;
+            this.Etats = new List<EtatActif>();
+            this.HabiletesActives = new List<Habilete>();
+            this.Attaque = Attaque;
+            this.Defense = Defense;
+            Etats.Add(EtatActif.Vivant);
+        }
+
         /*
-         * Constructeur avec Argumennts
+        * Constructeur avec surnom
+        */
+        public Monstre(string Surnom) : base()
+        {
+            this.Surnom = Surnom;
+            this.NiveauExperience = 1;
+            this.PointsExperience = 0;
+            this.ptsVieActuels = PtsVieBase;
+            this.ptsEnergieActuels = PtsEnergieBase;
+            this.Etats = new List<EtatActif>();
+            this.HabiletesActives = new List<Habilete>();
+            this.Attaque = Attaque;
+            this.Defense = Defense;
+            Etats.Add(EtatActif.Vivant);
+        }
+
+        /*
+         * Constructeur avec Arguments
          */
         public Monstre(int id, string nom, string description, int ptsVieBase, int ptsVieMax, int ptsEnergieBase, int ptsEnergieMax, List<Habilete> habiletesPotentielles, TypeMonstre typeDelement, int rarete, //base termine ici.
              string surnom, List<EtatActif> etats, List<Habilete> habiletesActives, float Attaque, float Defense) //Uniquement de la classe Monstre
@@ -128,122 +176,115 @@ namespace TravailSession
         //Verifie si lon doit monter de niveau
         public void VerifierMonterNiveau()
         {
-            int niveau1 = 1000;
-            int niveau2 = 2500;
-            int niveau3 = 5000;
-            int niveau4 = 8000;
-            int niveau5 = 12000;
-            int niveau6 = 16500;
-            int niveau7 = 22000;
-            int niveau8 = 28000;
-            int niveau9 = 36000;
-            int niveau10 = 46000;
-
-            if (this.PointsExperience < niveau1)
+            if (this.PointsExperience < NIVEAU1)
             {
                 NiveauExperience = 1;
             }
 
-            else if (this.PointsExperience < niveau2)
+            else if (this.PointsExperience < NIVEAU2)
             {
                 if (NiveauExperience < 2)
                 {
                     NiveauExperience = 2;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                 NiveauExperience = 2;
             }
 
-            else if (this.PointsExperience < niveau3)
+            else if (this.PointsExperience < NIVEAU3)
             {
                 if (NiveauExperience < 3)
                 {
                     NiveauExperience = 3;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 3;
             }
 
-            else if (this.PointsExperience < niveau4)
+            else if (this.PointsExperience < NIVEAU4)
             {
                 if (NiveauExperience < 4)
                 {
                     NiveauExperience = 4;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 4;
             }
 
-            else if (this.PointsExperience < niveau5)
+            else if (this.PointsExperience < NIVEAU5)
             {
                 if (NiveauExperience < 5)
                 {
                     NiveauExperience = 5;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 5;
             }
 
-            else if (this.PointsExperience < niveau6)
+            else if (this.PointsExperience < NIVEAU6)
             {
                 if (NiveauExperience < 6)
                 {
                     NiveauExperience = 6;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 6;
             }
 
-            else if (this.PointsExperience < niveau7)
+            else if (this.PointsExperience < NIVEAU7)
             {
                 if (NiveauExperience < 7)
                 {
                     NiveauExperience = 7;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 7;
             }
 
-            else if (this.PointsExperience < niveau8)
+            else if (this.PointsExperience < NIVEAU8)
             {
                 if (NiveauExperience < 8)
                 {
                     NiveauExperience = 8;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 8;
             }
 
-            else if (this.PointsExperience < niveau9)
+            else if (this.PointsExperience < NIVEAU9)
             {
                 if (NiveauExperience < 9)
                 {
                     NiveauExperience = 9;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 9;
             }
 
-            else {
+            else if (this.PointsExperience < NIVEAU10)
+            {
                 if (NiveauExperience < 10)
                 {
                     NiveauExperience = 10;
-                    Console.WriteLine("Vous avez monter de niveau! Vous etes maintenant niveau" + NiveauExperience);
+                    Console.WriteLine("Votre monstre a monter de niveau! Il est maintenant niveau" + NiveauExperience);
                 }
                 else
                     NiveauExperience = 10;
             }
+
+            else
+                Console.WriteLine("Une erreur est survenu! Votre niveau est ambigue." );
         }
 
-        //Ajoute de l'experience et modifie le niveau si necessaire
+        //Ajoute de l'experience
         public void AjoutExperience(int xp)
         {
             this.PointsExperience += xp;

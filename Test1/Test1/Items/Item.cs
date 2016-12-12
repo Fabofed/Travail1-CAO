@@ -12,7 +12,6 @@ namespace TravailSession
     //Cette classe est termine - Dave
 
     [Serializable]
-
     public abstract class Item : ItemDescription
     {
         public abstract int Quantite { get; set; }
