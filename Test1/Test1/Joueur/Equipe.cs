@@ -128,7 +128,7 @@ namespace TravailSession
         public Equipe ChoisirEnnemis(Recompense.DifficulteCombat difficulte, Joueur joueur)
         {
             Equipe EquipeEnnemi = new Equipe();
-            int laTaille = joueur.Equipe.Taille;
+            int laTaille = joueur..Taille;
 
             // Boucler pour i allant de 0 a la taille de lequipe. Ajouter un monstre en fonction de la difficulte.
             for (int i = 0; i < laTaille; i++)

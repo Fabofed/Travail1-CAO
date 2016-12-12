@@ -20,18 +20,18 @@ namespace TravailSession
     public class Monstre : MonstreDescription
     {
         private Random generateur = new Random();
-        private const int ARGENT_DEPART = 1000;
+        private const int ARgentDepart = 1000;
 
-        private const int NIVEAU1 = 1000;
-        private const int NIVEAU2 = 2500;
-        private const int NIVEAU3 = 5000;
-        private const int NIVEAU4 = 8000;
-        private const int NIVEAU5 = 12000;
-        private const int NIVEAU6 = 16500;
-        private const int NIVEAU7 = 22000;
-        private const int NIVEAU8 = 28000;
-        private const int NIVEAU9 = 36000;
-        private const int NIVEAU10 = 46000;
+        private const int Niveau1 = 1000;
+        private const int Niveau2 = 2500;
+        private const int Niveau3 = 5000;
+        private const int Niveau4 = 8000;
+        private const int Niveau5 = 12000;
+        private const int Niveau6 = 16500;
+        private const int Niveau7 = 22000;
+        private const int Niveau8 = 28000;
+        private const int Niveau9 = 36000;
+        private const int Niveau10 = 46000;
 
         public string Surnom { get; set; }
 
@@ -89,9 +89,10 @@ namespace TravailSession
         /*
          * Constructeur avec Arguments
          */
-        public Monstre(int id, string nom, string description, int ptsVieBase, int ptsVieMax, int ptsEnergieBase, int ptsEnergieMax, List<Habilete> habiletesPotentielles, TypeMonstre typeDelement, int rarete, //base termine ici.
+        public Monstre(int id, string nom, string description, int ptsVieBase, int ptsVieMax, int ptsEnergieBase, int ptsEnergieMax, List<Habilete> habiletesPotentielles, TypeDelement Type
+            , int rarete, //base termine ici.
              string surnom, List<EtatActif> etats, List<Habilete> habiletesActives, float Attaque, float Defense) //Uniquement de la classe Monstre
-            : base(id, nom, description, ptsVieBase, ptsVieMax, ptsEnergieBase, ptsEnergieMax, habiletesPotentielles, typeDelement, rarete)
+            : base(id, nom, description, ptsVieBase, ptsVieMax, ptsEnergieBase, ptsEnergieMax, habiletesPotentielles, Type , rarete )
         {
             this.Surnom = surnom;
             this.NiveauExperience = 1;
@@ -176,12 +177,12 @@ namespace TravailSession
         //Verifie si lon doit monter de niveau
         public void VerifierMonterNiveau()
         {
-            if (this.PointsExperience < NIVEAU1)
+            if (this.PointsExperience < Niveau1)
             {
                 NiveauExperience = 1;
             }
 
-            else if (this.PointsExperience < NIVEAU2)
+            else if (this.PointsExperience < Niveau2)
             {
                 if (NiveauExperience < 2)
                 {
@@ -192,7 +193,7 @@ namespace TravailSession
                 NiveauExperience = 2;
             }
 
-            else if (this.PointsExperience < NIVEAU3)
+            else if (this.PointsExperience < Niveau3)
             {
                 if (NiveauExperience < 3)
                 {
@@ -203,7 +204,7 @@ namespace TravailSession
                     NiveauExperience = 3;
             }
 
-            else if (this.PointsExperience < NIVEAU4)
+            else if (this.PointsExperience < Niveau4)
             {
                 if (NiveauExperience < 4)
                 {
@@ -214,7 +215,7 @@ namespace TravailSession
                     NiveauExperience = 4;
             }
 
-            else if (this.PointsExperience < NIVEAU5)
+            else if (this.PointsExperience < Niveau5)
             {
                 if (NiveauExperience < 5)
                 {
@@ -225,7 +226,7 @@ namespace TravailSession
                     NiveauExperience = 5;
             }
 
-            else if (this.PointsExperience < NIVEAU6)
+            else if (this.PointsExperience < Niveau6)
             {
                 if (NiveauExperience < 6)
                 {
@@ -236,7 +237,7 @@ namespace TravailSession
                     NiveauExperience = 6;
             }
 
-            else if (this.PointsExperience < NIVEAU7)
+            else if (this.PointsExperience < Niveau7)
             {
                 if (NiveauExperience < 7)
                 {
@@ -247,7 +248,7 @@ namespace TravailSession
                     NiveauExperience = 7;
             }
 
-            else if (this.PointsExperience < NIVEAU8)
+            else if (this.PointsExperience < Niveau8)
             {
                 if (NiveauExperience < 8)
                 {
@@ -258,7 +259,7 @@ namespace TravailSession
                     NiveauExperience = 8;
             }
 
-            else if (this.PointsExperience < NIVEAU9)
+            else if (this.PointsExperience < Niveau9)
             {
                 if (NiveauExperience < 9)
                 {
@@ -269,7 +270,7 @@ namespace TravailSession
                     NiveauExperience = 9;
             }
 
-            else if (this.PointsExperience < NIVEAU10)
+            else if (this.PointsExperience < Niveau10)
             {
                 if (NiveauExperience < 10)
                 {

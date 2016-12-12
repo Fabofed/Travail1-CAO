@@ -9,12 +9,14 @@ namespace TravailSession
 {
     //Les deux methodes sont a refaire
 
-    public class Habilete 
+    public class Habilete
     {
         private Habilete habilete;
         private Joueur joueur;
         private Monstre depart;
         private Monstre cible;
+
+        public List<TypeDelement> ElementsPermis { get; set; }
 
         public bool UtilisableFeu { get; set; }
 
@@ -36,18 +38,18 @@ namespace TravailSession
         public string Nom { get; set; }
         public string Description { get; set; }
         public int Puissance { get; set; }
+
         public int Cout { get; set; }
 
-        public Element.Elements ElementsPermise { get; set; }
+//        public List<TypeDelement ElementsPermise { get; set; }
 
-
-        public Habilete(string nom, string description, int puissance, int cout, List<Element.Elements> elementsPermise)
+        public Habilete(string nom, string description, int puissance, int cout, List<TypeDelement> elementsPermise)
         {
             this.Nom = nom;
             this.Description = description;
             this.Puissance = puissance;
             this.Cout = cout;
-            List < Element.Elements > ElementsPermise = elementsPermise;
+            this.ElementsPermis = elementsPermise;
         }
 
         //Determine quel type de monstre peut utiliser l'habilete
@@ -62,11 +64,10 @@ namespace TravailSession
             UtilisableAir = false;
             UtilisableElectricite = false;
 
-            switch (monstre.Type)
+            /*switch (monstre.TypeDelement)
             {
-                case Element.Elements.Air:
+                case (monstre.TypeDelement == ElementsPermise);
                     UtilisableAir = true;
-                    return true;
                     break;
 
                 case Element.Elements.Eau:
@@ -99,13 +100,23 @@ namespace TravailSession
 
                 default:
                     break;
+            }*/
+
+
+            // Verifie si le type du monstre se retrouve dans la liste d éléments permis
+            foreach (TypeDelement type in ElementsPermis)
+            {
+                if (cible.TypeDelement.Equals(type)) // Type retrouve
+                    return true;
             }
+
+            return false;
         }
 
         //Cette methode est a faire.
         public void Effectuer()
         {
-            if (habilete.DeterminerUtilisable == true) //si l'habilete est utilisable pour ce type de monstre
+            if (habilete.DeterminerUtilisable(depart) == true) //si l'habilete est utilisable pour ce type de monstre
             {
                 if (this.monstre.CaracteristiquesMonstre.PtsEnergieActuels > this.habilete.Cout) //Si le monstre a assez de points d'energie
                 {

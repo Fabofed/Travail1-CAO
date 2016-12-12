@@ -18,57 +18,56 @@ namespace TravailSession
     {
         private string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
         private string confirmationChargement = "Vous avez bien sauvegardee vos items.";
-        private const int NIVEAU_DEPART = 1;
-        private const int NIVEAU_MAX = 10;
-        private const int ARGENT_DEPART = 500;
-        private const int EXPERIENCE_DEPART = ;
+        private const int NiveauDepart = 1;
+        private const int NiveauMax = 10;
+        private const int ArgentDepart = 500;
+        private const int ExperienceDepart = 0;
 
-        private const int NIVEAU1 = 1000;
-        private const int NIVEAU2 = 2500;
-        private const int NIVEAU3 = 5000;
-        private const int NIVEAU4 = 8000;
-        private const int NIVEAU5 = 12000;
-        private const int NIVEAU6 = 16500;
-        private const int NIVEAU7 = 22000;
-        private const int NIVEAU8 = 28000;
-        private const int NIVEAU9 = 36000;
-        private const int NIVEAU10 = 46000;
+        private const int Niveau1 = 1000;
+        private const int Niveau2 = 2500;
+        private const int Niveau3 = 5000;
+        private const int Niveau4 = 8000;
+        private const int Niveau5 = 12000;
+        private const int Niveau6 = 16500;
+        private const int Niveau7 = 22000;
+        private const int Niveau8 = 28000;
+        private const int Niveau9 = 36000;
+        private const int Niveau10 = 46000;
 
-        private string Nom { get; set; }
-        private int Niveau { get; set; }
-        private int Experience { get; set; }
+        public string Nom { get; set; }
+        public int Niveau { get; set; }
+        public int Experience { get; set; }
 
-        private int Argent { get; set; }
-        private Sexe sexe { get; set; }
-        private int Age { get; set; }
-        public Inventaire Inventaire { get; set; }
+        public int Argent { get; set; }
+        public Sexe Sex { get; set; }
+        public int Age { get; set; }
+        public Inventaire inventaire { get; set; }
         private List<Monstre> monstresCaptures = new List<Monstre>();
-        public Equipe equipe = new Equipe();
+        private Equipe _equipe;
 
         public enum Sexe { homme, femme, autre }
         
-        public Joueur(string nom, Sexe sexe, int age, Inventaire Inventaire, List<Monstre> monstresCaptures, Equipe Equipe)
+        public Joueur(string nom, Sexe sexe, int age, Inventaire inventaire, List<Monstre> monstresCaptures, Equipe equipe)
         {
             this.Nom = nom;
-            this.Argent = ARGENT_DEPART;
-            this.Niveau = NIVEAU_DEPART;
-            this.sexe = sexe;
+            this.Argent = ArgentDepart;
+            this.Niveau = NiveauDepart;
+            this.Sex = sexe;
             this.Age = age;
-            this.Inventaire = Inventaire;
+            this.inventaire = inventaire;
             this.monstresCaptures = monstresCaptures;
-            this.equipe = Equipe;
+            this._equipe = equipe;
         }
-
 
         //Verifie si lon doit monter de niveau
         public void VerifierMonterNiveau()
         {
-            if (this.Experience < NIVEAU1)
+            if (this.Experience < Niveau1)
             {
                 Niveau = 1;
             }
 
-            else if (this.Experience < NIVEAU2)
+            else if (this.Experience < Niveau2)
             {
                 if (Niveau < 2)
                 {
@@ -79,7 +78,7 @@ namespace TravailSession
                     Niveau = 2;
             }
 
-            else if (this.Experience < NIVEAU3)
+            else if (this.Experience < Niveau3)
             {
                 if (Niveau < 3)
                 {
@@ -90,7 +89,7 @@ namespace TravailSession
                     Niveau = 3;
             }
 
-            else if (this.Experience < NIVEAU4)
+            else if (this.Experience < Niveau4)
             {
                 if (Niveau < 4)
                 {
@@ -101,7 +100,7 @@ namespace TravailSession
                     Niveau = 4;
             }
 
-            else if (this.Experience < NIVEAU5)
+            else if (this.Experience < Niveau5)
             {
                 if (Niveau < 5)
                 {
@@ -112,7 +111,7 @@ namespace TravailSession
                     Niveau = 5;
             }
 
-            else if (this.Experience < NIVEAU6)
+            else if (this.Experience < Niveau6)
             {
                 if (Niveau < 6)
                 {
@@ -123,7 +122,7 @@ namespace TravailSession
                     Niveau = 6;
             }
 
-            else if (this.Experience < NIVEAU7)
+            else if (this.Experience < Niveau7)
             {
                 if (Niveau < 7)
                 {
@@ -134,7 +133,7 @@ namespace TravailSession
                     Niveau = 7;
             }
 
-            else if (this.Experience < NIVEAU8)
+            else if (this.Experience < Niveau8)
             {
                 if (Niveau < 8)
                 {
@@ -145,7 +144,7 @@ namespace TravailSession
                     Niveau = 8;
             }
 
-            else if (this.Experience < NIVEAU9)
+            else if (this.Experience < Niveau9)
             {
                 if (Niveau < 9)
                 {
@@ -156,7 +155,7 @@ namespace TravailSession
                     Niveau = 9;
             }
 
-            else if (this.Experience < NIVEAU10)
+            else if (this.Experience < Niveau10)
             {
                 if (Niveau < 10)
                 {
@@ -181,6 +180,8 @@ namespace TravailSession
         {
             get { return this.monstresCaptures; }
         }
+
+        public object Inventaire { get; internal set; }
 
         public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
@@ -213,7 +214,7 @@ namespace TravailSession
 
         public override string ToString()
         {
-            return "Nom: " + Nom + "/nNiveau: " + Niveau + "/nSexe: " + sexe + "/nArgent: " + Argent + "/nInventaire: " + Inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + equipe;
+            return "Nom: " + Nom + "/nNiveau: " + Niveau + "/nSexe: " + Sex + "/nArgent: " + Argent + "/nInventaire: " + inventaire + "/nMonstres Capturés: " + monstresCaptures + "/nEquipe: " + _equipe;
         }
     }
 }

@@ -13,10 +13,11 @@ namespace TravailSession
 {
     //Cette classe n'est pas terminer - Dave
     //Il reste a implementer la serialization en XML
+    //Il faut donner des valeurs par defauts dans le constructeur
+
 
     [Serializable]
-
-    public enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
+    public enum TypeDelement { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
 
     public class MonstreDescription : IPersistant
     {
@@ -39,12 +40,13 @@ namespace TravailSession
 
         public List<Habilete> habiletesPotentielles { get; set; }
 
-        public TypeMonstre TypeDelement { get; set; }
+        public TypeDelement TypeDelement { get; set; }
 
         public int NiveauDeBase { get; set; }
 
         public int Rarete { get; set; } // plus bas = plus rare (1 a 100)
 
+        //Il faut donner des valeurs par defauts
         public MonstreDescription()
         {
             this.Id = Id;
@@ -61,7 +63,7 @@ namespace TravailSession
         }
 
         public MonstreDescription(int Id, string Nom, string Description, int PtsVieBase, int PtsVieMax, int PtsEnergieBase, 
-            int PtsEnergieMax, List<Habilete> habiletesPotentielles, TypeMonstre TypeDelement, int Rarete)
+            int PtsEnergieMax, List<Habilete> habiletesPotentielles, TypeDelement TypeDelement, int Rarete)
         {
             this.Id = Id;
             this.Nom = Nom;
@@ -102,7 +104,7 @@ namespace TravailSession
         public string ChargerXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)
         {
             XmlSerializer formatJ = new XmlSerializer(typeof(Item));
-            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (ItemDescription)formatJ.Deserialize(streamJ);
+            using (Stream streamJ = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) joueur = (Joueur)formatJ.Deserialize(streamJ);
 
             XmlSerializer formatID = new XmlSerializer(typeof(Item));
             using (Stream streamID = new FileStream(@endroit, FileMode.Open, FileAccess.Read, FileShare.None)) item = (ItemDescription)formatID.Deserialize(streamID);
