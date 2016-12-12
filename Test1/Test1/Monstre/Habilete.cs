@@ -7,13 +7,14 @@ using TravailSession.Interfaces;
 
 namespace TravailSession
 {
-  
-    public enum CibleHabilete { Soi, Ennemi}
+    //Les deux methodes sont a refaire
 
-    public enum EffetHabilete { Guerison, Degat, Regeneration, Sommeil, Paralysie, Force, Faiblesse} 
-
-    public class Habilete : IUtilisable
+    public class Habilete 
     {
+        private Habilete habilete;
+        private Joueur joueur;
+        private Monstre depart;
+        private Monstre cible;
 
         public bool UtilisableFeu { get; set; }
 
@@ -32,28 +33,25 @@ namespace TravailSession
         public bool UtilisableElectricite { get; set; }
 
 
-        public string Nom { get; private set; }
-        public string Description { get; private set; }
-        public int Gain { get; private set; }
-        public int Puissance { get; private set; }
-        private EffetHabilete effet { get; set; }
+        public string Nom { get; set; }
+        public string Description { get; set; }
+        public int Puissance { get; set; }
+        public int Cout { get; set; }
+
+        public Element.Elements ElementsPermise { get; set; }
 
 
-        // public TypeElement element { get; private set; }
-
-
-        public Habilete(string nom, string description, int gain, int puissance, EffetHabilete effet /*TypeElement element = TypeElement.PretaAttaquer*/)
+        public Habilete(string nom, string description, int puissance, int cout, List<Element.Elements> elementsPermise)
         {
             this.Nom = nom;
             this.Description = description;
-            this.Gain = gain;
             this.Puissance = puissance;
-            this.effet = effet;
-            //this.Element = element;
+            this.Cout = cout;
+            List < Element.Elements > ElementsPermise = elementsPermise;
         }
 
-        //Determine quel type de monstre peut utiliser l'item
-        private void DeterminerUtilisable(Element.Elements Type)
+        //Determine quel type de monstre peut utiliser l'habilete
+        private bool DeterminerUtilisable(Monstre monstre)
         {
             UtilisableFeu = false;
             UtilisableMagma = false;
@@ -64,10 +62,11 @@ namespace TravailSession
             UtilisableAir = false;
             UtilisableElectricite = false;
 
-            switch (Type)
+            switch (monstre.Type)
             {
                 case Element.Elements.Air:
                     UtilisableAir = true;
+                    return true;
                     break;
 
                 case Element.Elements.Eau:
@@ -103,9 +102,22 @@ namespace TravailSession
             }
         }
 
-        public string Utiliser(Effet unEffet, Monstre cible, Monstre depart)
+        //Cette methode est a faire.
+        public void Effectuer()
         {
-            throw new NotImplementedException();
+            if (habilete.DeterminerUtilisable == true) //si l'habilete est utilisable pour ce type de monstre
+            {
+                if (this.monstre.CaracteristiquesMonstre.PtsEnergieActuels > this.habilete.Cout) //Si le monstre a assez de points d'energie
+                {
+                    habilete.Effectuer(this.cible); //Ajoute la  a la cible
+                    joueur.Inventaire.Supprimer(this.potionDeForce); //Enleve les points denergie au monstre
+                    Console.WriteLine("Vous consommez votre potion. /nVous reprenez " + force.Magnitude + " points de force.");
+                }
+                else
+                {
+                    Console.WriteLine("Vous ne pouvez pas utiliser cette habilete!");
+                }
+            }
         }
     }
 }

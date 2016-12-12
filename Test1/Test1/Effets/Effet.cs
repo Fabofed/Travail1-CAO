@@ -13,10 +13,9 @@ namespace TravailSession
         //Cette classe est terminer - Dave
 
         public abstract Monstre Cible { get; set; }
-        public Monstre Depart { get; set; }
         public abstract int Magnitude { get; set; }
         public abstract int Duree { get; set; }
 
-        public abstract void Effectuer(Monstre monstre);
+        public abstract void Effectuer(Monstre cible);
     }
 }

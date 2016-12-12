@@ -18,11 +18,6 @@ namespace TravailSession
         private Joueur joueur;
         public static readonly Magasin ItemsMagasin = new Magasin();
 
-        private List<Effet> EffetsSphere = new List<Effet>();
-        private List<Effet> EffetsPotionDeVie = new List<Effet>();
-        private List<Effet> EffetsPotionDeRegeneration = new List<Effet>();
-        private List<Effet> EffetsPotionDeForce = new List<Effet>();
-
         public const int SPHERE = 0;
         public const int POTION_DE_VIE_ID = 1;
         public const int POTION_DE_REGENERATION_ID = 2;
@@ -32,7 +27,7 @@ namespace TravailSession
         public ItemCollection<Item> Details { get; set; }
         public int Quantite { get; set; }
 
-        public Magasin()
+        public Magasin() : base()
         {
             //Herite de tous ce qu'il a besoin
         }

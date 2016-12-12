@@ -10,9 +10,28 @@ namespace TravailSession
     {
         private Monstre monstre;
 
-        public override void Effectuer(Effet effet, Monstre monstre)
+        public override Monstre Cible
         {
-            this.monstre.CaracteristiquesMonstre.PtsEnergieActuels = this.monstre.CaracteristiquesMonstre.PtsEnergieActuels * 1.25; //Regenere 1/4 de lenergie du monstre
+            get { return Cible; }
+            set { this.Cible = value; }
+        }
+
+        public override int Duree
+        {
+            get { return Duree; }
+            set { this.Duree = value; }
+        }
+
+        public override int Magnitude
+        {
+            get { return Magnitude; }
+            set { this.Magnitude = value; }
+        }
+
+        public override void Effectuer(Monstre monstre)
+        {
+            this.monstre.CaracteristiquesMonstre.PtsEnergieActuels = this.monstre.CaracteristiquesMonstre.PtsEnergieActuels * 
+                ((this.monstre.CaracteristiquesMonstre.PtsEnergieTotal)/2); //Regenere 1/2 de lenergie total du monstre
         }
     }
 }

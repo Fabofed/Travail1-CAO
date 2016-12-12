@@ -66,7 +66,7 @@ namespace TravailSession.Items
         {
             if (this.joueur.Inventaire.Contains(this.potionDeRegeneration)) //Si la potion est dans l'inventaire
             {
-                regeneration.Effectuer(regeneration, this.cible); //Gueri la cible
+                regeneration.Effectuer(this.cible); //Gueri la cible
                 joueur.Inventaire.Supprimer(this.potionDeRegeneration); //Enleve l'item de l'inventaire
                 Console.WriteLine("Vous consommez votre potion. /nVous avez regenere " + regeneration.Magnitude + " points d'energie.");
             }

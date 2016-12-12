@@ -65,7 +65,7 @@ namespace TravailSession.Items
         {
             if (this.joueur.Inventaire.Contains(this.potionDeVie)) //Si la potion est dans l'inventaire
             {
-                guerison.Effectuer(guerison, this.cible); //Gueri la cible
+                guerison.Effectuer(this.cible); //Gueri la cible
                 joueur.Inventaire.Supprimer(this.potionDeVie); //Enleve l'item de l'inventaire
                 Console.WriteLine("Vous consommez votre potion. /nVous avez ete gueri de " + guerison.Magnitude + " points.");
             }

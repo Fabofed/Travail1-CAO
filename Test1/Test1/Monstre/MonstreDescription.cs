@@ -11,6 +11,11 @@ using TravailSession.Items;
 
 namespace TravailSession
 {
+    //Cette classe n'est pas terminer - Dave
+    //Il reste a implementer la serialization en XML
+
+    [Serializable]
+
     public enum TypeMonstre { Feu, Magma, Terre, Vegetation, Eau, Glace, Air, Electricite }
 
     public class MonstreDescription : IPersistant
@@ -18,17 +23,50 @@ namespace TravailSession
         static string confirmationSauvegarde = "Vous avez bien sauvegardee vos items.";
         static string confirmationChargement = "Vous avez bien sauvegardee vos items.";
 
-        public string nom { get; set; }
-        public TypeMonstre type { get; set; }
+        public int Id { get; set; }
+
+        public string Nom { get; set; }
+
+        public string Description { get; set; }
+
+        public int PtsVieBase { get; set; }
+
+        public int PtsVieMax { get; set; }
+
+        public int PtsEnergieBase { get; set; }
+
+        public int PtsEnergieMax { get; set; }
+
+        public List<Habilete> habiletesPotentielles { get; set; }
+
+        public TypeMonstre TypeDelement { get; set; }
+
         public int NiveauDeBase { get; set; }
+
         public int Rarete { get; set; } // plus bas = plus rare (1 a 100)
-        public Element Element { get; set; }
-        private List<Habilete> habiletesPotentielles;
-        private List<Habilete> habiletesActives;
+
+        public MonstreDescription(int Id, string Nom, string Description, int PtsVieBase, int PtsVieMax, int PtsEnergieBase, 
+            int PtsEnergieMax, List<Habilete> habiletesPotentielles, TypeMonstre TypeDelement, int Rarete)
+        {
+            this.Id = Id;
+            this.Nom = Nom;
+            this.Description = Description;
+            this.PtsVieBase = PtsVieBase;
+            this.PtsVieMax = PtsVieMax;
+            this.PtsEnergieBase = PtsEnergieBase;
+            this.PtsEnergieMax = PtsEnergieMax;
+            this.habiletesPotentielles = habiletesPotentielles;
+            this.TypeDelement = TypeDelement;
+            this.NiveauDeBase = 1;
+            this.Rarete = Rarete;
+        }
 
         public override string ToString()
         {
-            return "Description du monstre: " + nom;
+            return "ID: " + Id + "/nNom: " + Nom + "/nDescription: " + Description + "/nPoints de vie de base: " + PtsVieBase 
+                + "/nPoints de vies maximales: " + PtsVieMax + "/nPoints d'energie de base: " + PtsEnergieBase + 
+                "/nPoints d'enerige maximales: " + PtsEnergieMax + "/nHabiletes potentielles: " + habiletesPotentielles
+                 + "/Type d'element: " + TypeDelement + "/Niveau de base: " + NiveauDeBase + "/Rarete: " + Rarete;
         }
 
         public string SauvegardeXML(Joueur joueur, MonstreDescription monstre, ItemDescription item, string endroit)

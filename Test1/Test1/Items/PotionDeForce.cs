@@ -11,7 +11,7 @@ namespace TravailSession.Items
 
     class PotionDeForce : Item
     {
-        private PotionDeVie potionDeForce;
+        private PotionDeForce potionDeForce;
         private Force force;
         private Joueur joueur;
         private Monstre cible;

@@ -9,19 +9,36 @@ namespace TravailSession
 {
     class Guerison : Effet
     {
-        public override void Effectuer(Effet guerir, Monstre cible)
+        private Guerison guerison;
+
+        public override Monstre Cible
         {
+            get { return Cible; }
+            set { this.Cible = value; }
+        }
+
+        public override int Duree
+        {
+            get { return Duree; }
+            set { this.Duree = value; }
+        }
+
+        public override int Magnitude
+        {
+            get { return Magnitude; }
+            set { this.Magnitude = value; }
+        }
+
+        public override void Effectuer(Monstre cible)
+        {
+            if (cible.CaracteristiquesMonstre.PtsVieActuels == cible.CaracteristiquesMonstre.PtsVieMax) //Si les vies sont pleines
+                Console.WriteLine("Vos vies sont deja pleine!");
+            else
             {
-                if (cible.PtsVieActuels == cible.PtsVieTotal) //Si les vies sont pleines
-                    Console.WriteLine("Vos vies sont deja pleine!");
+                cible.CaracteristiquesMonstre.PtsVieActuels = cible.CaracteristiquesMonstre.PtsVieActuels + guerison.Magnitude; //Ajoute les vies  au monstre
 
-                else
-                {
-                    cible.PtsVieActuels = cible.PtsVieActuels + guerir.Magnitude; //Ajoute les vies  au monstre
-
-                    if (cible.PtsVieActuels > cible.PtsVieTotal)
-                        cible.PtsVieActuels = cible.PtsVieTotal; //Si les vies depasserais les vies permise, ont les met au max
-                }
+                if (cible.PtsVieActuels > cible.CaracteristiquesMonstre.PtsVieMax)
+                    cible.PtsVieActuels = cible.CaracteristiquesMonstre.PtsVieMax; //Si les vies depasserais les vies permise, ont les met au max
             }
         }
     }

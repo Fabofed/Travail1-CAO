@@ -50,7 +50,6 @@
     <Compile Include="Items\ItemDescription.cs" />
     <Compile Include="Monstre\MonstreDescription.cs" />
     <Compile Include="Partie\Aventure.cs" />
-    <Compile Include="Monstre\Caracteristiques.cs" />
     <Compile Include="Collection\ItemCollection.cs" />
     <Compile Include="Partie\Combat.cs" />
     <Compile Include="Effets\Capture.cs" />
@@ -62,7 +61,6 @@
     <Compile Include="Items\PotionDeVie.cs" />
     <Compile Include="Partie\Recompense.cs" />
     <Compile Include="Effets\Effet.cs" />
-    <Compile Include="Monstre\Element.cs" />
     <Compile Include="Joueur\Equipe.cs" />
     <Compile Include="Effets\Faiblesse.cs" />
     <Compile Include="Effets\Force.cs" />

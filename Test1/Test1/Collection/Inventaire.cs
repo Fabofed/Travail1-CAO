@@ -14,7 +14,7 @@ namespace TravailSession
     //Il reste a implementer la serialization.
 
     [Serializable]
-    //Herite de la classe abstraite generique Collection. Represente l'invetaire du joueur
+    //Herite de la classe abstraite generique Collection. Represente l'inventaire du joueur
     class Inventaire : ItemCollection<Item>, IPersistant
     {
         private Joueur joueur;

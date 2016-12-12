@@ -8,6 +8,8 @@ using TravailSession.Effets;
 
 namespace TravailSession
 {
+    //Cette classe est terminer - Dave
+
     public class Sphere : Item
     {
         private Sphere sphere;
